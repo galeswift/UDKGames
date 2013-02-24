@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{E17AB4A1-DF35-4579-9E91-0CFFBFB6391A}") = "AssaultGame", "AssaultGame.ucproj", "{5D49FE57-9E1D-4467-ADB7-DC3B94676D1A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5D49FE57-9E1D-4467-ADB7-DC3B94676D1A}.Debug|Win32.ActiveCfg = Debug|Win32
+		{5D49FE57-9E1D-4467-ADB7-DC3B94676D1A}.Debug|Win32.Build.0 = Debug|Win32
+		{5D49FE57-9E1D-4467-ADB7-DC3B94676D1A}.Release|Win32.ActiveCfg = Release|Win32
+		{5D49FE57-9E1D-4467-ADB7-DC3B94676D1A}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

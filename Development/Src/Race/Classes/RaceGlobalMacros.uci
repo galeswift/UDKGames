@@ -1,0 +1,26 @@
+/**
+ * Copyright © 2005 Epic Games, Inc. All Rights Reserved.
+ */
+
+`if(`isdefined(FINAL_RELEASE))
+
+/** Convenience macro for special moves debugging */
+`define LogSM(msg)
+`define LogSMExt(A,msg)
+`define LogVar(varname)
+`define CamDLog(msg)
+`define AILog(text)
+`define AILog(text, category)
+`define AILog(text, category, bForce)
+`define AILog_Ext(text, category, object)
+`define DEBUGSTATE
+
+`else
+
+/** Convenience macro for special moves debugging */
+`define LogSM(msg)			`Log(WorldInfo.TimeSeconds @ self @ GetFuncName() @ `msg,, 'SpecialMoves')
+`define LogSMExt(A,msg)		`Log(`A.WorldInfo.TimeSeconds @ `A @ `A.GetFuncName() @ `msg,, 'SpecialMoves')
+`define CamDLog(msg)        `Log("[" $ WorldInfo.TimeSeconds $ "]" @ `msg,bCamDebug)
+`define DEBUGSTATE              extends DEBUGSTATE
+
+`endif

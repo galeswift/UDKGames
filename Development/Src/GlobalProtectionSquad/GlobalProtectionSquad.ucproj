@@ -1,0 +1,481 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>True</DebugSymbols>
+    <UccUseUnpublished>False</UccUseUnpublished>
+    <UccMultiPackageBuild>False</UccMultiPackageBuild>
+    <BuildArgs>
+    </BuildArgs>
+    <UccPackageOrder>Classes;Localization;Config</UccPackageOrder>
+    <OverrideScriptPath>True</OverrideScriptPath>
+    <UccScriptsPath>C:\UDK\UDK-2010-03\UTGame\Script</UccScriptsPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">Win32</Platform>
+    <ProductVersion>1.0.0</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{950e0a7e-4e52-4217-92e0-d4985a387c78}</ProjectGuid>
+    <OutputType>UserMod</OutputType>
+    <ProjectType>UnrealScript</ProjectType>
+    <RootNamespace>GlobalProtectionSquad</RootNamespace>
+    <AssemblyName>GlobalProtectionSquad</AssemblyName>
+    <Name>GlobalProtectionSquad</Name>
+    <TargetGame>UnrealEngine 3 Mod</TargetGame>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|Win32' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <UccUseUnpublished>False</UccUseUnpublished>
+    <UseUnpublished>False</UseUnpublished>
+    <ForceWindowedMode>True</ForceWindowedMode>
+    <WindowWidth>1024</WindowWidth>
+    <WindowHeight>768</WindowHeight>
+    <ShowLogWindow>False</ShowLogWindow>
+    <LogToFile>False</LogToFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|Win32' ">
+    <DebugSymbols>false</DebugSymbols>
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <UccUseUnpublished>False</UccUseUnpublished>
+    <UseUnpublished>False</UseUnpublished>
+    <ForceWindowedMode>False</ForceWindowedMode>
+    <ShowLogWindow>False</ShowLogWindow>
+    <LogToFile>False</LogToFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="*\Classes\*.uc" />
+    <Compile Include="Classes\GPS_Game.uc">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\GPS_GameCrowdAgent.uc">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\GPS_Pawn.uc">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\GPS_PlayerCamera.uc">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\GPS_PlayerController.uc">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\GPS_Proj_Base.uc">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\GPS_Proj_Grenade.uc">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\GPS_Proj_GrenadeBurst.uc">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\GPS_Proj_Missile.uc">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\GPS_Proj_Rocket.uc">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\GPS_Proj_ShotgunShell.uc">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\GPS_Proj_Sniper.uc">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\GPS_Proj_Sniper_Pierce.uc">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\GPS_ThirdPersonCamera.uc">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\GPS_ThirdPersonCameraMode_Default.uc">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\GPS_Weap_AssaultRifle.uc">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\GPS_Weap_AssaultRifle_01.uc">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\GPS_Weap_AssaultRifle_02.uc">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\GPS_Weap_AssaultRifle_03.uc">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\GPS_Weap_AssaultRifle_04.uc">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\GPS_Weap_AssaultRifle_05.uc">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\GPS_Weap_AssaultRifle_06.uc">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\GPS_Weap_AssaultRifle_07.uc">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\GPS_Weap_AssaultRifle_08.uc">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\GPS_Weap_AssaultRifle_09.uc">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\GPS_Weap_AssaultRifle_10.uc">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\GPS_Weap_AssaultRifle_11.uc">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\GPS_Weap_AssaultRifle_12.uc">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\GPS_Weap_AssaultRifle_13.uc">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\GPS_Weap_AssaultRifle_14.uc">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\GPS_Weap_AssaultRifle_15.uc">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\GPS_Weap_AssaultRifle_16.uc">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\GPS_Weap_AssaultRifle_17.uc">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\GPS_Weap_AssaultRifle_18.uc">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\GPS_Weap_AssaultRifle_19.uc">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\GPS_Weap_AssaultRifle_20.uc">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\GPS_Weap_AssaultRifle_21.uc">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\GPS_Weap_AssaultRifle_22.uc">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\GPS_Weap_AssaultRifle_23.uc">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\GPS_Weap_AssaultRifle_24.uc">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\GPS_Weap_AssaultRifle_25.uc">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\GPS_Weap_Base.uc">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\GPS_Weap_GrenadeLauncher.uc">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\GPS_Weap_GrenadeLauncher_BurstDown.uc">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\GPS_Weap_MissileLauncher.uc">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\GPS_Weap_RocketLauncher.uc">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\GPS_Weap_RocketLauncher_01.uc">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\GPS_Weap_RocketLauncher_02.uc">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\GPS_Weap_RocketLauncher_03.uc">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\GPS_Weap_RocketLauncher_04.uc">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\GPS_Weap_RocketLauncher_05.uc">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\GPS_Weap_RocketLauncher_06.uc">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\GPS_Weap_RocketLauncher_07.uc">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\GPS_Weap_RocketLauncher_08.uc">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\GPS_Weap_RocketLauncher_09.uc">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\GPS_Weap_RocketLauncher_10.uc">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\GPS_Weap_RocketLauncher_11.uc">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\GPS_Weap_RocketLauncher_12.uc">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\GPS_Weap_RocketLauncher_13.uc">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\GPS_Weap_RocketLauncher_14.uc">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\GPS_Weap_RocketLauncher_15.uc">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\GPS_Weap_RocketLauncher_16.uc">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\GPS_Weap_RocketLauncher_17.uc">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\GPS_Weap_RocketLauncher_18.uc">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\GPS_Weap_RocketLauncher_19.uc">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\GPS_Weap_RocketLauncher_20.uc">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\GPS_Weap_RocketLauncher_21.uc">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\GPS_Weap_Shotgun.uc">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\GPS_Weap_Shotgun_01.uc">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\GPS_Weap_Shotgun_02.uc">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\GPS_Weap_Shotgun_03.uc">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\GPS_Weap_Shotgun_04.uc">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\GPS_Weap_Shotgun_05.uc">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\GPS_Weap_Shotgun_06.uc">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\GPS_Weap_Shotgun_07.uc">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\GPS_Weap_Shotgun_08.uc">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\GPS_Weap_Shotgun_09.uc">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\GPS_Weap_Shotgun_10.uc">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\GPS_Weap_Shotgun_11.uc">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\GPS_Weap_Shotgun_12.uc">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\GPS_Weap_Shotgun_13.uc">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\GPS_Weap_Shotgun_14.uc">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\GPS_Weap_Shotgun_15.uc">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\GPS_Weap_Shotgun_16.uc">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\GPS_Weap_Shotgun_17.uc">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\GPS_Weap_Shotgun_18.uc">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\GPS_Weap_Shotgun_19.uc">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\GPS_Weap_Sniper.uc">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\GPS_Weap_Sniper_01.uc">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\GPS_Weap_Sniper_02.uc">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\GPS_Weap_Sniper_03.uc">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\GPS_Weap_Sniper_04.uc">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\GPS_Weap_Sniper_05.uc">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\GPS_Weap_Sniper_06.uc">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\GPS_Weap_Sniper_07.uc">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\GPS_Weap_Sniper_08.uc">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\GPS_Weap_Sniper_09.uc">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\GPS_Weap_Sniper_10.uc">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\GPS_Weap_Sniper_11.uc">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\GPS_Weap_Sniper_12.uc">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\GPS_Weap_Sniper_13.uc">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\GPS_Weap_Sniper_14.uc">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\GPS_Weap_Sniper_15.uc">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\GPS_Weap_Sniper_16.uc">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\GPS_Weap_Sniper_17.uc">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\GPS_Weap_Sniper_18.uc">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\GPS_Weap_Sniper_19.uc">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\GPS_Weap_Sniper_20.uc">
+      <SubType>Code</SubType>
+    </Compile>
+    <Content Include="**\*.uci" />
+    <Content Include="..\..\..\UTGame\Config\UTAnimSetViewer_layoutAUI_INT.txt">
+      <SubType>Content</SubType>
+      <Link>Config\UTAnimSetViewer_layoutAUI_INT.txt</Link>
+    </Content>
+    <Content Include="..\..\..\UTGame\Config\UTAnimTreeEditor_layoutAUI_INT.txt">
+      <SubType>Content</SubType>
+      <Link>Config\UTAnimTreeEditor_layoutAUI_INT.txt</Link>
+    </Content>
+    <Content Include="..\..\..\UTGame\Config\UTKismet_layoutAUI_INT.txt">
+      <SubType>Content</SubType>
+      <Link>Config\UTKismet_layoutAUI_INT.txt</Link>
+    </Content>
+    <Content Include="..\..\..\UTGame\Config\UTMaterialEditor_layoutAUI_INT.txt">
+      <SubType>Content</SubType>
+      <Link>Config\UTMaterialEditor_layoutAUI_INT.txt</Link>
+    </Content>
+    <Content Include="..\..\..\UTGame\Config\UTStaticMeshEditor_layoutAUI_INT.txt">
+      <SubType>Content</SubType>
+      <Link>Config\UTStaticMeshEditor_layoutAUI_INT.txt</Link>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Classes" />
+    <Folder Include="Localization" />
+    <Folder Include="Config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Localization Include="..\..\..\UTGame\Localization\INT\GlobalProtectionSquad.int">
+      <Link>Localization\GlobalProtectionSquad.int</Link>
+    </Localization>
+  </ItemGroup>
+  <ItemGroup>
+    <Config Include="..\..\..\UTGame\Config\DefaultCharInfo.ini">
+      <Link>Config\DefaultCharInfo.ini</Link>
+    </Config>
+    <Config Include="..\..\..\UTGame\Config\DefaultCompat.ini">
+      <Link>Config\DefaultCompat.ini</Link>
+    </Config>
+    <Config Include="..\..\..\UTGame\Config\DefaultEditor.ini">
+      <Link>Config\DefaultEditor.ini</Link>
+    </Config>
+    <Config Include="..\..\..\UTGame\Config\DefaultEditorKeyBindings.ini">
+      <Link>Config\DefaultEditorKeyBindings.ini</Link>
+    </Config>
+    <Config Include="..\..\..\UTGame\Config\DefaultEditorUserSettings.ini">
+      <Link>Config\DefaultEditorUserSettings.ini</Link>
+    </Config>
+    <Config Include="..\..\..\UTGame\Config\DefaultEngine.ini">
+      <Link>Config\DefaultEngine.ini</Link>
+    </Config>
+    <Config Include="..\..\..\UTGame\Config\DefaultEngineUDK.ini">
+      <Link>Config\DefaultEngineUDK.ini</Link>
+    </Config>
+    <Config Include="..\..\..\UTGame\Config\DefaultGame.ini">
+      <Link>Config\DefaultGame.ini</Link>
+    </Config>
+    <Config Include="..\..\..\UTGame\Config\DefaultInput.ini">
+      <Link>Config\DefaultInput.ini</Link>
+    </Config>
+    <Config Include="..\..\..\UTGame\Config\DefaultInputDefaults.ini">
+      <Link>Config\DefaultInputDefaults.ini</Link>
+    </Config>
+    <Config Include="..\..\..\UTGame\Config\DefaultLightmass.ini">
+      <Link>Config\DefaultLightmass.ini</Link>
+    </Config>
+    <Config Include="..\..\..\UTGame\Config\DefaultUI.ini">
+      <Link>Config\DefaultUI.ini</Link>
+    </Config>
+    <Config Include="..\..\..\UTGame\Config\DefaultWeapon.ini">
+      <Link>Config\DefaultWeapon.ini</Link>
+    </Config>
+    <Config Include="..\..\..\UTGame\Config\DefaultWeaponDefaults.ini">
+      <Link>Config\DefaultWeaponDefaults.ini</Link>
+    </Config>
+    <Config Include="..\..\..\UTGame\Config\UTCharInfo.ini">
+      <Link>Config\UTCharInfo.ini</Link>
+    </Config>
+    <Config Include="..\..\..\UTGame\Config\UTEditor.ini">
+      <Link>Config\UTEditor.ini</Link>
+    </Config>
+    <Config Include="..\..\..\UTGame\Config\UTEditorKeyBindings.ini">
+      <Link>Config\UTEditorKeyBindings.ini</Link>
+    </Config>
+    <Config Include="..\..\..\UTGame\Config\UTEditorUserSettings.ini">
+      <Link>Config\UTEditorUserSettings.ini</Link>
+    </Config>
+    <Config Include="..\..\..\UTGame\Config\UTEngine.ini">
+      <Link>Config\UTEngine.ini</Link>
+    </Config>
+    <Config Include="..\..\..\UTGame\Config\UTGame.ini">
+      <Link>Config\UTGame.ini</Link>
+    </Config>
+    <Config Include="..\..\..\UTGame\Config\UTInput.ini">
+      <Link>Config\UTInput.ini</Link>
+    </Config>
+    <Config Include="..\..\..\UTGame\Config\UTLightmass.ini">
+      <Link>Config\UTLightmass.ini</Link>
+    </Config>
+    <Config Include="..\..\..\UTGame\Config\UTUI.ini">
+      <Link>Config\UTUI.ini</Link>
+    </Config>
+    <Config Include="..\..\..\UTGame\Config\UTWeapon.ini">
+      <Link>Config\UTWeapon.ini</Link>
+    </Config>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\PixelMine\UnrealScript.targets" />
+</Project>

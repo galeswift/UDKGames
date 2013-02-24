@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{E17AB4A1-DF35-4579-9E91-0CFFBFB6391A}") = "UDKProject", "UDKProject.ucproj", "{361E555B-00E4-4A8D-92B0-9270FDD77D8B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{361E555B-00E4-4A8D-92B0-9270FDD77D8B}.Debug|Win32.ActiveCfg = Debug|Win32
+		{361E555B-00E4-4A8D-92B0-9270FDD77D8B}.Debug|Win32.Build.0 = Debug|Win32
+		{361E555B-00E4-4A8D-92B0-9270FDD77D8B}.Release|Win32.ActiveCfg = Release|Win32
+		{361E555B-00E4-4A8D-92B0-9270FDD77D8B}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

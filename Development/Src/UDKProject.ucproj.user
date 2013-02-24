@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <StartProgram>..\..\Binaries\Win32\UDK.exe</StartProgram>
+    <CmdArgs />
+    <LoadMapAtStartup>True</LoadMapAtStartup>
+    <StartupMap>PT-main -BENCHMARK -MAXQUALITYMODE -NOTEXTURESTREAMING -DUMPMOVIE -FPS=30 -ResX=1280 -ResY=720</StartupMap>
+    <LoadGameType>False</LoadGameType>
+    <UserGameType />
+    <NoSound>False</NoSound>
+    <NoStartupMovies>True</NoStartupMovies>
+    <UseUnpublished>False</UseUnpublished>
+    <ForceWindowedMode>True</ForceWindowedMode>
+    <WindowWidth>1024</WindowWidth>
+    <WindowHeight>768</WindowHeight>
+    <ShowLogWindow>True</ShowLogWindow>
+    <LogWindowX>0</LogWindowX>
+    <LogWindowY>0</LogWindowY>
+    <LogToFile>False</LogToFile>
+    <LogFile />
+  </PropertyGroup>
+</Project>

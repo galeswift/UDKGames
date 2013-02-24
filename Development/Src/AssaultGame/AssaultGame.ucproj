@@ -1,0 +1,185 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>True</DebugSymbols>
+    <UccUseUnpublished>True</UccUseUnpublished>
+    <UccMultiPackageBuild>False</UccMultiPackageBuild>
+    <BuildArgs>
+    </BuildArgs>
+    <UccPackageOrder>Classes</UccPackageOrder>
+    <OverrideScriptPath>True</OverrideScriptPath>
+    <UccScriptsPath>C:\UDK\UDK-2010-03\UTGame\Script</UccScriptsPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>False</DebugSymbols>
+    <UccUseUnpublished>False</UccUseUnpublished>
+    <UccMultiPackageBuild>False</UccMultiPackageBuild>
+    <BuildArgs>
+    </BuildArgs>
+    <UccPackageOrder>Classes</UccPackageOrder>
+    <OverrideScriptPath>True</OverrideScriptPath>
+    <UccScriptsPath>C:\UDK\UDK-2010-03\UTGame\Script</UccScriptsPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">Win32</Platform>
+    <ProductVersion>1.0.0</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{5d49fe57-9e1d-4467-adb7-dc3b94676d1a}</ProjectGuid>
+    <OutputType>UserMod</OutputType>
+    <ProjectType>UnrealScript</ProjectType>
+    <RootNamespace>AssaultGame</RootNamespace>
+    <AssemblyName>AssaultGame</AssemblyName>
+    <Name>AssaultGame</Name>
+    <TargetGame>UnrealEngine 3 Mod</TargetGame>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|Win32' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <UccUseUnpublished>False</UccUseUnpublished>
+    <UseUnpublished>False</UseUnpublished>
+    <ForceWindowedMode>True</ForceWindowedMode>
+    <WindowWidth>1024</WindowWidth>
+    <WindowHeight>768</WindowHeight>
+    <ShowLogWindow>False</ShowLogWindow>
+    <LogToFile>False</LogToFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|Win32' ">
+    <DebugSymbols>false</DebugSymbols>
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <UccUseUnpublished>False</UccUseUnpublished>
+    <UseUnpublished>False</UseUnpublished>
+    <ForceWindowedMode>False</ForceWindowedMode>
+    <ShowLogWindow>False</ShowLogWindow>
+    <LogToFile>False</LogToFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="*\Classes\*.uc" />
+    <Compile Include="Classes\AS_AdvancedGun.uc">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\AS_AdvancedGunProjectile.uc">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\AS_BasicGun.uc">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\AS_Game.uc">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\AS_Objective.uc">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\AS_PhysicsMutator.uc">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\AS_PlayerController.uc">
+      <SubType>Code</SubType>
+    </Compile>
+    <Content Include="**\*.uci" />
+    <Content Include="..\..\..\UTGame\Config\UTKismet_layoutAUI_INT.txt">
+      <SubType>Content</SubType>
+      <Link>Config\UTKismet_layoutAUI_INT.txt</Link>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Classes" />
+    <Folder Include="Config" />
+    <Folder Include="Localization" />
+  </ItemGroup>
+  <ItemGroup>
+    <Config Include="..\..\..\UTGame\Config\AS_PhysicsMutator.ini">
+      <Link>Config\AS_PhysicsMutator.ini</Link>
+    </Config>
+    <Config Include="..\..\..\UTGame\Config\DefaultCharInfo.ini">
+      <Link>Config\DefaultCharInfo.ini</Link>
+    </Config>
+    <Config Include="..\..\..\UTGame\Config\DefaultCompat.ini">
+      <Link>Config\DefaultCompat.ini</Link>
+    </Config>
+    <Config Include="..\..\..\UTGame\Config\DefaultEditor.ini">
+      <Link>Config\DefaultEditor.ini</Link>
+    </Config>
+    <Config Include="..\..\..\UTGame\Config\DefaultEditorKeyBindings.ini">
+      <Link>Config\DefaultEditorKeyBindings.ini</Link>
+    </Config>
+    <Config Include="..\..\..\UTGame\Config\DefaultEditorUserSettings.ini">
+      <Link>Config\DefaultEditorUserSettings.ini</Link>
+    </Config>
+    <Config Include="..\..\..\UTGame\Config\DefaultEngine.ini">
+      <Link>Config\DefaultEngine.ini</Link>
+    </Config>
+    <Config Include="..\..\..\UTGame\Config\DefaultEngineUDK.ini">
+      <Link>Config\DefaultEngineUDK.ini</Link>
+    </Config>
+    <Config Include="..\..\..\UTGame\Config\DefaultGame.ini">
+      <Link>Config\DefaultGame.ini</Link>
+    </Config>
+    <Config Include="..\..\..\UTGame\Config\DefaultInput.ini">
+      <Link>Config\DefaultInput.ini</Link>
+    </Config>
+    <Config Include="..\..\..\UTGame\Config\DefaultInputDefaults.ini">
+      <Link>Config\DefaultInputDefaults.ini</Link>
+    </Config>
+    <Config Include="..\..\..\UTGame\Config\DefaultLightmass.ini">
+      <Link>Config\DefaultLightmass.ini</Link>
+    </Config>
+    <Config Include="..\..\..\UTGame\Config\DefaultUI.ini">
+      <Link>Config\DefaultUI.ini</Link>
+    </Config>
+    <Config Include="..\..\..\UTGame\Config\DefaultWeapon.ini">
+      <Link>Config\DefaultWeapon.ini</Link>
+    </Config>
+    <Config Include="..\..\..\UTGame\Config\DefaultWeaponDefaults.ini">
+      <Link>Config\DefaultWeaponDefaults.ini</Link>
+    </Config>
+    <Config Include="..\..\..\UTGame\Config\UTCharInfo.ini">
+      <Link>Config\UTCharInfo.ini</Link>
+    </Config>
+    <Config Include="..\..\..\UTGame\Config\UTEditor.ini">
+      <Link>Config\UTEditor.ini</Link>
+    </Config>
+    <Config Include="..\..\..\UTGame\Config\UTEditorKeyBindings.ini">
+      <Link>Config\UTEditorKeyBindings.ini</Link>
+    </Config>
+    <Config Include="..\..\..\UTGame\Config\UTEditorUserSettings.ini">
+      <Link>Config\UTEditorUserSettings.ini</Link>
+    </Config>
+    <Config Include="..\..\..\UTGame\Config\UTEngine.ini">
+      <Link>Config\UTEngine.ini</Link>
+    </Config>
+    <Config Include="..\..\..\UTGame\Config\UTGame.ini">
+      <Link>Config\UTGame.ini</Link>
+    </Config>
+    <Config Include="..\..\..\UTGame\Config\UTInput.ini">
+      <Link>Config\UTInput.ini</Link>
+    </Config>
+    <Config Include="..\..\..\UTGame\Config\UTLightmass.ini">
+      <Link>Config\UTLightmass.ini</Link>
+    </Config>
+    <Config Include="..\..\..\UTGame\Config\UTUI.ini">
+      <Link>Config\UTUI.ini</Link>
+    </Config>
+    <Config Include="..\..\..\UTGame\Config\UTWeapon.ini">
+      <Link>Config\UTWeapon.ini</Link>
+    </Config>
+  </ItemGroup>
+  <ItemGroup>
+    <Localization Include="..\..\..\UTGame\Localization\INT\UTEditor.int">
+      <Link>Localization\UTEditor.int</Link>
+    </Localization>
+    <Localization Include="..\..\..\UTGame\Localization\INT\utgame.int">
+      <Link>Localization\utgame.int</Link>
+    </Localization>
+    <Localization Include="..\..\..\UTGame\Localization\INT\UTGameContent.int">
+      <Link>Localization\UTGameContent.int</Link>
+    </Localization>
+    <Localization Include="..\..\..\UTGame\Localization\INT\UTGameUI.int">
+      <Link>Localization\UTGameUI.int</Link>
+    </Localization>
+    <Localization Include="AS_PhysicsMutator.int" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\PixelMine\UnrealScript.targets" />
+</Project>
