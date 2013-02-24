@@ -13,4 +13,5 @@ DefaultProperties
 	DefaultInventory.Add(class'GPS_Weap_Sniper_13')	
 	DefaultInventory.Add(class'GPS_Weap_RocketLauncher_05')	
 	DefaultInventory.Add(class'GPS_Weap_Shotgun_07')		
+	DefaultInventory.Add(class'GPS_Weap_MissileLauncher_03')		
 }

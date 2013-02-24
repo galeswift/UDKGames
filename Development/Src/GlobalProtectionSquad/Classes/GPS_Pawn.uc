@@ -27,13 +27,13 @@ simulated function Destroyed()
 
 DefaultProperties
 {
+	InventoryManagerClass=class'GPS_InventoryManager'
+
 	Begin Object Name=MyLightEnvironment
 		ModShadowFadeoutTime=0.25
 		MinTimeBetweenFullUpdates=0.2
 		AmbientGlow=(R=.01,G=.01,B=.01,A=1)
 		AmbientShadowColor=(R=0.15,G=0.15,B=0.15)
-		LightShadowMode=LightShadow_ModulateBetter
-		ShadowFilterQuality=SFQ_High
 		bSynthesizeSHLight=TRUE
 	End Object
 	Components.Add(MyLightEnvironment)

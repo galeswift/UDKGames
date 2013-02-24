@@ -36,7 +36,6 @@ DefaultProperties
 	// Sounds
 	// Engine sound.
 	Begin Object Class=AudioComponent Name=MantaEngineSound
-		SoundCue=SoundCue'A_Vehicle_Manta.SoundCues.A_Vehicle_Manta_EngineLoop'
 	End Object
 	EngineSound=MantaEngineSound
 	Components.Add(MantaEngineSound);
@@ -108,7 +107,6 @@ DefaultProperties
 	BigExplosionTemplates[1]=(Template=ParticleSystem'Envy_Effects.VH_Deaths.P_VH_Death_SMALL_Near')
 	BigExplosionSocket=VH_Death
 	ExplosionSound=SoundCue'A_Vehicle_Manta.SoundCues.A_Vehicle_Manta_Explode'
-	HoverBoardAttachSockets=(HoverAttach00)
 
 	TeamMaterials[0]=MaterialInstanceConstant'VH_Manta.Materials.MI_VH_Manta_Red'
 	TeamMaterials[1]=MaterialInstanceConstant'VH_Manta.Materials.MI_VH_Manta_Blue'
@@ -282,7 +280,6 @@ DefaultProperties
 	BaseEyeheight=110
 	Eyeheight=110
 
-	bLightArmor=true
 	DefaultFOV=90
 	CameraLag=0.02
 	bCanBeBaseForPawns=true

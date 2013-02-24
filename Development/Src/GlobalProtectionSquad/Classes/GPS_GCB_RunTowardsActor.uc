@@ -4,11 +4,8 @@ var Actor ChaseFocus;
 
 function ActivatedBy(Actor NewActionTarget)
 {
-	local GameCrowdDestination TempDest, PrevDest;
-
 	// don't pass action target to super - we don't want to look at it
 	ChaseFocus = NewActionTarget; 
-	PrevDest = MyAgent.PreviousDestination;
 
 	// see if already heading away from danger
 	if( GPS_Pawn( NewActionTarget ) != none &&
