@@ -81,8 +81,16 @@ function Init( Vector Direction )
 
 simulated function SetIgniteTime(float BaseIgniteTime)
 {
-	IgniteTime = (FRand() * 0.2) + BaseIgniteTime;	
-	SetTimer(IgniteTime , false, 'Ignite');
+	IgniteTime = (FRand() * 0.2) + BaseIgniteTime;
+	
+	if( IgniteTime > 0.0f )
+	{
+		SetTimer(IgniteTime , false, 'Ignite');
+	}
+	else
+	{
+		Ignite();
+	}
 }
 
 

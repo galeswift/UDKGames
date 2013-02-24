@@ -45,7 +45,6 @@ event NotifySeePlayer(PlayerController PC)
 		}
 		else
 		{
-			`log(self@"Found see player beavior "@CurrentBehavior);
 			if( GPS_GCB_RunTowardsActor( CurrentBehavior ) != none )
 			{
 				GPS_GCB_RunTowardsActor( CurrentBehavior ).ActivatedBy( PC.Pawn );
