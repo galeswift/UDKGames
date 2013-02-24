@@ -1,4 +1,4 @@
-class PT_InventoryManager extends InventoryManager;
+class PT_InventoryManager extends UTInventoryManager;
 
 DefaultProperties
 {
