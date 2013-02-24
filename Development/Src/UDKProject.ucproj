@@ -48,12 +48,16 @@
     <Folder Include="Core\Classes\" />
     <Folder Include="Engine\" />
     <Folder Include="Engine\Classes\" />
+    <Folder Include="GA3331\" />
+    <Folder Include="GA3331\Classes\" />
     <Folder Include="GameFramework\" />
     <Folder Include="GameFramework\Classes\" />
     <Folder Include="GFxUIEditor\" />
     <Folder Include="GFxUIEditor\Classes\" />
     <Folder Include="GFxUI\" />
     <Folder Include="GFxUI\Classes\" />
+    <Folder Include="GlobalProtectionSquad\" />
+    <Folder Include="GlobalProtectionSquad\Classes\" />
     <Folder Include="GravityBind\" />
     <Folder Include="GravityBind\Classes\" />
     <Folder Include="IpDrv\" />
