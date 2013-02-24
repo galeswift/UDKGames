@@ -35,9 +35,78 @@ var array<float> BurstList;
 /** If this is greater than 1, we'll queue up another shot */
 var int CurrentBurstCount;      
 
-// No ammo consumption on weapons
-function ConsumeAmmo( byte FireModeNum )
+/** If greater than 0, how much time is left before we're done reloading */
+var float CurrentReloadTime;
+
+simulated function PostBeginPlay()
 {
+	Super.PostBeginPlay();
+
+	AmmoCount = BaseClipCapacity;
+}
+
+function RechargeAmmo()
+{
+}
+
+// No ammo consumption on weapons
+simulated function WeaponEmpty()
+{
+	if( ShouldReload() )
+	{
+		GoToState( 'Reloading' );
+	}
+}
+
+simulated function bool ShouldReload()
+{
+	return AmmoCount <= 0 || CurrentReloadTime > 0.0f;
+}
+
+state Active
+{
+	simulated event BeginState(name PreviousStateName)
+	{
+		if( ShouldReload() )
+		{
+			GotoState('Reloading');
+		}
+	}
+}
+
+
+state Reloading
+{
+	simulated event BeginState(name PreviousStateName)
+	{
+		CurrentReloadTime = BaseReloadTime;
+	}
+
+	simulated function StartFire(byte FireModeNum) 
+	{
+	}
+
+	simulated function WeaponEmpty()
+	{
+	}
+
+	simulated event Tick(float DeltaTime)
+	{		
+		CurrentReloadTime-=DeltaTime;
+
+		`log(" Reloading, time left is "$CurrentReloadTime);
+
+		if( CurrentReloadTime <= 0 )
+		{
+			CurrentReloadTime = 0;
+			GotoState('Active');
+		}
+	}
+
+	simulated event EndState(name NextStateName)
+	{
+		AmmoCount = BaseClipCapacity;
+	}
 }
 
 // Called by the GPS_Proj_Base projectile to get the damage dealt by this weapon
