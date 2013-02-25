@@ -4,7 +4,7 @@
     <StartProgram>..\..\Binaries\Win32\UDK.exe</StartProgram>
     <CmdArgs />
     <LoadMapAtStartup>True</LoadMapAtStartup>
-    <StartupMap>GPS-LevelTest.udk</StartupMap>
+    <StartupMap>GPS-LevelTest</StartupMap>
     <LoadGameType>True</LoadGameType>
     <UserGameType>GlobalProtectionSquad.GPS_Game</UserGameType>
     <NoSound>False</NoSound>

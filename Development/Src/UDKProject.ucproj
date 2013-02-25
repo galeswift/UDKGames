@@ -44,12 +44,16 @@
     <Content Include="**\*.uci" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="AssaultGame\" />
+    <Folder Include="AssaultGame\Classes\" />
     <Folder Include="Core\" />
     <Folder Include="Core\Classes\" />
     <Folder Include="Engine\" />
     <Folder Include="Engine\Classes\" />
     <Folder Include="GA3331\" />
     <Folder Include="GA3331\Classes\" />
+    <Folder Include="GalacticBattle\" />
+    <Folder Include="GalacticBattle\Classes\" />
     <Folder Include="GameFramework\" />
     <Folder Include="GameFramework\Classes\" />
     <Folder Include="GFxUIEditor\" />
@@ -60,8 +64,14 @@
     <Folder Include="GlobalProtectionSquad\Classes\" />
     <Folder Include="GravityBind\" />
     <Folder Include="GravityBind\Classes\" />
+    <Folder Include="GUIFrameworkExample\" />
+    <Folder Include="GUIFrameworkExample\Classes\" />
+    <Folder Include="GUIFramework\" />
+    <Folder Include="GUIFramework\Classes\" />
     <Folder Include="IpDrv\" />
     <Folder Include="IpDrv\Classes\" />
+    <Folder Include="LoTrap\" />
+    <Folder Include="LoTrap\Classes\" />
     <Folder Include="OnlineSubsystemGameCenter\" />
     <Folder Include="OnlineSubsystemGameCenter\Classes\" />
     <Folder Include="OnlineSubsystemPC\" />
@@ -70,6 +80,10 @@
     <Folder Include="OnlineSubsystemSteamworks\Classes\" />
     <Folder Include="ProjectTactics\" />
     <Folder Include="ProjectTactics\Classes\" />
+    <Folder Include="Race\" />
+    <Folder Include="Race\Classes\" />
+    <Folder Include="RLEngine\" />
+    <Folder Include="RLEngine\Classes\" />
     <Folder Include="UDKBase\" />
     <Folder Include="UDKBase\classes\" />
     <Folder Include="UnrealEd\" />
