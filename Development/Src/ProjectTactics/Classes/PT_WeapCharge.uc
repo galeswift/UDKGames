@@ -29,7 +29,6 @@ simulated state WeaponCharge
 
 	simulated function BeginFire( Byte FireModeNum )
 	{
-		TimeWeaponFiring(CurrentFireMode);
 	}
 
 	simulated function RefireCheckTimer()
@@ -40,12 +39,6 @@ simulated state WeaponCharge
 			`LogInv("Weapon put down requested during fire, put it down now");
 			PutDownWeapon();
 			return;
-		}
-
-		// Otherwise we're done firing
-		if( !ShouldRefire() )
-		{
-			HandleFinishedFiring(); 
 		}
 	}
 
@@ -99,15 +92,14 @@ simulated state WeaponCharge
 		ChargePSC.SetFloatParameter('ChargeAmount',ChargeAmount);
 
 		// If weapon should keep on firing, then do not leave state and fire again.
-		if( !ShouldRefire() )
+		if( !StillFiring(CurrentFireMode) )
 		{
 			ChargePSC.SetHidden(true);
 			ChargePSC.DeactivateSystem();
 			ChargeAudio.Stop();
 		
 			FireAmmunition();
-			
-			return;
+			HandleFinishedFiring(); 
 		}
 	}
 }

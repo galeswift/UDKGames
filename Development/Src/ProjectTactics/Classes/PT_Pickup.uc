@@ -8,7 +8,6 @@ var SoundCue PickupSound;
 
 simulated event Touch(Actor Other, PrimitiveComponent OtherComp, Vector HitLocation, Vector HitNormal)
 {
-	`log("Touched other "@Other);
 	Super.Touch(Other, OtherComp, HitLocation, HitNormal);
 
 	if( PT_Pawn(Other) != none && 
