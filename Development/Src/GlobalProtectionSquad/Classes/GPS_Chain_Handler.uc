@@ -63,12 +63,12 @@ function DoNextChain()
 		}
 		else
 		{
-			Destroy();
+			EndChain();
 		}
 	}
 	else
 	{
-		Destroy();
+		EndChain();
 	}
 }
 
