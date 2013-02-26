@@ -52,8 +52,6 @@ UDKGame/Config/
 UDKGame/Content/GameAssetDatabase.checkpoint
 UDKGame/Content/GameAssetDatabase.journal
 UDKGame/Content/GameAssetDatabase_backup.journal
-UDKGame/Content/GlobalProtectionSquad/GPS-Level1.udk
-UDKGame/Content/GlobalProtectionSquad/GPS_Misc.upk
 UDKGame/Content/GlobalShaderCache-PC-D3D-SM3.bin
 UDKGame/Content/GlobalShaderCache-PC-D3D-SM5.bin
 UDKGame/Content/GlobalShaderCache-PC-OpenGL.bin
