@@ -50,6 +50,8 @@
     <Folder Include="Core\Classes\" />
     <Folder Include="Engine\" />
     <Folder Include="Engine\Classes\" />
+    <Folder Include="ExoEditor\" />
+    <Folder Include="ExoEditor\Classes\" />
     <Folder Include="GA3331\" />
     <Folder Include="GA3331\Classes\" />
     <Folder Include="GalacticBattle\" />
@@ -84,6 +86,12 @@
     <Folder Include="Race\Classes\" />
     <Folder Include="RLEngine\" />
     <Folder Include="RLEngine\Classes\" />
+    <Folder Include="SubstanceAirEd\" />
+    <Folder Include="SubstanceAirEd\Classes\" />
+    <Folder Include="SubstanceAir\" />
+    <Folder Include="SubstanceAir\Classes\" />
+    <Folder Include="SwordEditor\" />
+    <Folder Include="SwordEditor\Classes\" />
     <Folder Include="UDKBase\" />
     <Folder Include="UDKBase\classes\" />
     <Folder Include="UnrealEd\" />
