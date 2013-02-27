@@ -30,16 +30,15 @@ exec function GiveAllWeapons()
 {	
 	local int i;
 
-	WeaponList = new class'GPS_WeaponListForPlayer';
-	WeaponList.Init(true);
+	Pawn.InvManager.DiscardInventory();
 
-	for( i=0 ; i<WeaponList.MAX_WEAPONS_ALL_UNLOCKED ; i++ )
+	for( i=0 ; i<WeaponList.WeaponUnlockListDefault.UnlockList.Length ; i++ )
 	{
 		// Ensure we don't give duplicate items
-		if (Pawn.FindInventoryType( WeaponList.EquippedWeaponList_AllUnlocked[i].Weapon ) == None)
+		if (Pawn.FindInventoryType( WeaponList.WeaponUnlockListDefault.UnlockList[i].Weapon ) == None)
 		{
 			// Only activate the first weapon
-			Pawn.CreateInventory(WeaponList.EquippedWeaponList_AllUnlocked[i].Weapon, (i > 0));
+			Pawn.CreateInventory( WeaponList.WeaponUnlockListDefault.UnlockList[i].Weapon, (i > 0));
 		}
 	}
 }

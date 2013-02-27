@@ -93,7 +93,7 @@ function FindBestTarget()
 
 	if( BestTarget != none )
 	{
-		Target = BestTarget.Location;
+		Target = BestTarget.SkeletalMeshComponent.Bounds.Origin;
 	}
 	else
 	{

@@ -2,7 +2,6 @@ class GPS_Chain_Handler extends Actor;
 
 var int ChainsLeft;
 var GPS_Weap_Chain WeaponOwner;
-var ParticleSystem ChainEmitter;
 var ImpactInfo PrevImpact;
 var array<Actor> PrevHitList;
 
@@ -76,7 +75,7 @@ function SpawnChainEffects( vector StartLocation, vector EndLocation )
 {
 	local ParticleSystemComponent ChainPSC;
 
-	ChainPSC = WorldInfo.MyEmitterPool.SpawnEmitter(ChainEmitter,StartLocation);
+	ChainPSC = WorldInfo.MyEmitterPool.SpawnEmitter(WeaponOwner.ChainEmitter,StartLocation);
 	ChainPSC.SetVectorParameter('LinkBeamEnd', EndLocation);
 	ChainPSC.ActivateSystem();
 	WorldInfo.PlaySound(WeaponOwner.WeaponFireSnd[0],,,,StartLocation);
@@ -111,5 +110,5 @@ function Actor FindBestChainTarget()
 
 DefaultProperties
 {
-	ChainEmitter = ParticleSystem'GPS_FX.Effects.P_WP_ChainGun'
+
 }

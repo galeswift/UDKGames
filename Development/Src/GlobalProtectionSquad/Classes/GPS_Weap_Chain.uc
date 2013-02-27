@@ -3,6 +3,7 @@ class GPS_Weap_Chain extends GPS_Weap_InstantHit
 
 var float DelayBetweenChain;
 var int MaxChains;
+var ParticleSystem ChainEmitter;
 
 simulated function DoInstantHitBehavior(byte FiringMode, ImpactInfo Impact, optional int NumHits)
 {
@@ -25,7 +26,8 @@ simulated function ProcessInstantHit(byte FiringMode, ImpactInfo Impact, optiona
 
 DefaultProperties
 {
-	DelayBetweenChain=0.3f
+	DelayBetweenChain=0.5f
 	MaxChains=10
 	BaseDamage=20
+	ChainEmitter = ParticleSystem'GPS_FX.Effects.P_WP_ChainGun'
 }
