@@ -1,8 +1,18 @@
 class GPS_Chain_Handler extends Actor;
 
+// How many times we can still chain
 var int ChainsLeft;
+
+// The weapon that fired us
 var GPS_Weap_Chain WeaponOwner;
+
+// Our light that we are showing
+var UTLinkBeamLight BeamLight;
+
+// The last actor we hit
 var ImpactInfo PrevImpact;
+
+// All actors we've hit
 var array<Actor> PrevHitList;
 
 // Called from our weapon
@@ -77,8 +87,14 @@ function SpawnChainEffects( vector StartLocation, vector EndLocation )
 
 	ChainPSC = WorldInfo.MyEmitterPool.SpawnEmitter(WeaponOwner.ChainEmitter,StartLocation);
 	ChainPSC.SetVectorParameter('LinkBeamEnd', EndLocation);
+	ChainPSC.SetColorParameter('BeamColor',WeaponOwner.ChainColor);
 	ChainPSC.ActivateSystem();
 	WorldInfo.PlaySound(WeaponOwner.WeaponFireSnd[0],,,,StartLocation);
+
+	BeamLight = spawn(class'UTLinkBeamLight');
+	BeamLight.SetLocation((StartLocation + EndLocation) * 0.5f);
+	BeamLight.BeamLight.SetLightProperties(, WeaponOwner.ChainColor);
+	BeamLight.LifeSpan = 0.2f;
 }
 
 function Actor FindBestChainTarget()

@@ -1,9 +1,17 @@
 class GPS_Weap_Chain extends GPS_Weap_InstantHit
 	abstract;
 
+// How much time between chaining that we want
 var float DelayBetweenChain;
+
+// How many times we can chain
 var int MaxChains;
+
+// The emitter to show when chaining
 var ParticleSystem ChainEmitter;
+
+// The color of the emitter
+var Color ChainColor;
 
 simulated function DoInstantHitBehavior(byte FiringMode, ImpactInfo Impact, optional int NumHits)
 {
@@ -26,8 +34,9 @@ simulated function ProcessInstantHit(byte FiringMode, ImpactInfo Impact, optiona
 
 DefaultProperties
 {
-	DelayBetweenChain=0.5f
+	DelayBetweenChain=0.3f
 	MaxChains=10
 	BaseDamage=20
 	ChainEmitter = ParticleSystem'GPS_FX.Effects.P_WP_ChainGun'
+	ChainColor=(R=255, G=100, B=100)
 }
