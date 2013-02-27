@@ -26,6 +26,24 @@ function AddDefaultInventory()
 	}
 }
 
+exec function GiveAllWeapons()
+{	
+	local int i;
+
+	WeaponList = new class'GPS_WeaponListForPlayer';
+	WeaponList.Init(true);
+
+	for( i=0 ; i<WeaponList.MAX_WEAPONS_ALL_UNLOCKED ; i++ )
+	{
+		// Ensure we don't give duplicate items
+		if (Pawn.FindInventoryType( WeaponList.EquippedWeaponList_AllUnlocked[i].Weapon ) == None)
+		{
+			// Only activate the first weapon
+			Pawn.CreateInventory(WeaponList.EquippedWeaponList_AllUnlocked[i].Weapon, (i > 0));
+		}
+	}
+}
+
 /**
  * Reset Camera Mode to default
  */

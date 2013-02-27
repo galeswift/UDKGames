@@ -195,4 +195,5 @@ DefaultProperties
 	BaseBurstAmount=1
 	BaseBurstTime=0.1
 	BaseZoom=1.0	
+	BaseClipCapacity=1
 }
