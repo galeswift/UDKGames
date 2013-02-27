@@ -26,13 +26,8 @@ function Init(bool bUnlockAll=false)
 {
 	local int i;
 
-<<<<<<< HEAD
-	if( Version != WeaponUnlockListDefault.Version )
-	{   
-=======
 	if( Version != WeaponUnlockListDefault.Version || bUnlockAll )
 	{
->>>>>>> Added GiveAllWeapons Cheat
 		WeaponUnlockList.Remove(0, WeaponUnlockList.Length);
 		WeaponUnlockList.Length = WeaponUnlockListDefault.UnlockList.Length;
 
