@@ -27,7 +27,7 @@ function Init(bool bUnlockAll=false)
 	local int i;
 
 	if( Version != WeaponUnlockListDefault.Version || bUnlockAll )
-	{
+	{   
 		WeaponUnlockList.Remove(0, WeaponUnlockList.Length);
 		WeaponUnlockList.Length = WeaponUnlockListDefault.UnlockList.Length;
 
