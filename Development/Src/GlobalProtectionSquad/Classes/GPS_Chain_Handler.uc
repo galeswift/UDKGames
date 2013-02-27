@@ -21,8 +21,18 @@ function Init( ImpactInfo Impact, GPS_Weap_Chain ChainOwner )
 	WeaponOwner = ChainOwner;
 	PrevImpact = Impact;
 	ChainsLeft = ChainOwner.MaxChains;
+	
+	if( ChainOwner.ChainDecayTimer > 0.0f )
+	{
+		SetTimer(ChainOwner.ChainDecayTimer,true,'DecayChainList');
+	}
 
 	PrimeNextChain();
+}
+
+function DecayChainList()
+{
+	PrevHitList.Remove(0,1);
 }
 
 function PrimeNextChain()
@@ -85,11 +95,17 @@ function SpawnChainEffects( vector StartLocation, vector EndLocation )
 {
 	local ParticleSystemComponent ChainPSC;
 
+	if( WeaponOwner.bChainFromSky )
+	{
+		StartLocation = EndLocation;
+		StartLocation.Z += 5000;
+	}
+	
 	ChainPSC = WorldInfo.MyEmitterPool.SpawnEmitter(WeaponOwner.ChainEmitter,StartLocation);
 	ChainPSC.SetVectorParameter('LinkBeamEnd', EndLocation);
 	ChainPSC.SetColorParameter('BeamColor',WeaponOwner.ChainColor);
 	ChainPSC.ActivateSystem();
-	WorldInfo.PlaySound(WeaponOwner.WeaponFireSnd[0],,,,StartLocation);
+	WorldInfo.PlaySound(WeaponOwner.WeaponFireSnd[0],,,,EndLocation);
 
 	BeamLight = spawn(class'UTLinkBeamLight');
 	BeamLight.SetLocation((StartLocation + EndLocation) * 0.5f);

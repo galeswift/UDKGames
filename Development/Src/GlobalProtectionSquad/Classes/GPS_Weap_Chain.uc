@@ -13,6 +13,12 @@ var ParticleSystem ChainEmitter;
 // The color of the emitter
 var Color ChainColor;
 
+// How often to remove entries from the hit list
+var float ChainDecayTimer;
+
+// If true, chains come from the heavens
+var bool bChainFromSky;
+
 simulated function DoInstantHitBehavior(byte FiringMode, ImpactInfo Impact, optional int NumHits)
 {
 	Super.ProcessInstantHit(FiringMode, Impact, NumHits);
@@ -34,9 +40,11 @@ simulated function ProcessInstantHit(byte FiringMode, ImpactInfo Impact, optiona
 
 DefaultProperties
 {
+	BaseClipCapacity=20
+	ChainDecayTimer=0.0f
 	DelayBetweenChain=0.3f
 	MaxChains=10
-	BaseDamage=20
+	BaseDamage=40
 	ChainEmitter = ParticleSystem'GPS_FX.Effects.P_WP_ChainGun'
 	ChainColor=(R=255, G=100, B=100)
 }
