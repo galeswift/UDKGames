@@ -6,6 +6,6 @@ DefaultProperties
 	BaseReloadTime=4.0
 	bChainFromSky=true
 	ChainColor=(R=100, G=100, B=255)
-	DelayBetweenChain=1.0f
+	DelayBetweenChain=0.7f
 	BaseDamage=200
 }
