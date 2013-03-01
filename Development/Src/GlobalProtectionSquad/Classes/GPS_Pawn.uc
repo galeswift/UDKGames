@@ -3,21 +3,6 @@ class GPS_Pawn extends UTPawn;
 /** Created on PostBeginPlay, allows crowd agent to chase towards us */
 var GPS_SpawnableGameCrowdDestination MyGCD;
 
-
-/**
- * Set firing mode replication for remote clients trigger update notification.
- * Network: LocalPlayer and Server
- */
-simulated function SetFiringMode(Weapon InWeapon, byte InFiringMode)
-{
-	if( GPS_Weap_Beam(InWeapon) != none )
-	{
-		InFiringMode = 1;
-	}
-
-	Super.SetFiringMode(InWeapon, InFiringMode);
-}
-
 simulated event PostBeginPlay()
 {
 	super.PostBeginPlay();
