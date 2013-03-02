@@ -137,7 +137,7 @@ simulated event Tick( float DeltaTime )
 {
 	if( m_bOpening )
 	{
-		if( WorldInfo.TimeSince( m_fTimeStartedOpening ) >= m_fPortalOpenTime )
+		if( (WorldInfo.TimeSeconds - m_fTimeStartedOpening) >= m_fPortalOpenTime )
 		{
 			// Stop opening.
 			m_bOpening = false;
@@ -151,7 +151,7 @@ simulated event Tick( float DeltaTime )
 		else
 		{
 			// Calculate a new scale
-			m_vCurrentScale = VSmerp( m_vCurrentScale, vect(1,1,1), TimeSince( m_fTimeStartedOpening ) / m_fPortalOpenTime );
+			m_vCurrentScale = VLerp( m_vCurrentScale, vect(1,1,1), (WorldInfo.TimeSeconds -  m_fTimeStartedOpening ) / m_fPortalOpenTime );
 
 			// Scale the size of this mesh
 			m_PortalMesh.SetScale3D( m_vCurrentScale );
@@ -159,7 +159,7 @@ simulated event Tick( float DeltaTime )
 	}
 	else if( m_bClosing )
 	{
-		if( WorldInfo.TimeSince( m_fTimeStartedClosing ) >= m_fPortalOpenTime )
+		if( (WorldInfo.TimeSeconds - m_fTimeStartedClosing ) >= m_fPortalOpenTime )
 		{
 			// Stop opening.
 			m_bClosing = false;
@@ -173,7 +173,7 @@ simulated event Tick( float DeltaTime )
 		else
 		{
 			// Calculate a new scale
-			m_vCurrentScale = VSmerp( m_vCurrentScale, vect(1,1,0), TimeSince( m_fTimeStartedClosing ) / m_fPortalOpenTime );
+			m_vCurrentScale = VLerp( m_vCurrentScale, vect(1,1,0), (WorldInfo.TimeSeconds -  m_fTimeStartedClosing ) / m_fPortalOpenTime );
 
 			// Scale the size of this mesh
 			m_PortalMesh.SetScale3D( m_vCurrentScale );

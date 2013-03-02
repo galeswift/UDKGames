@@ -28,10 +28,10 @@ simulated state Active
 			SkeletalMeshComponent( Mesh ).AttachComponentToSocket( m_ParticleRightOrange, 'Right' );
 
 			m_ParticleLeftBlue.SetDepthPriorityGroup(SDPG_Foreground);
-			m_ParticleLeftBlue.SetFOV(UTSkeletalMeshComponent(Mesh).FOV);
+			//m_ParticleLeftBlue.SetFOV(UTSkeletalMeshComponent(Mesh).FOV);
 
 			m_ParticleRightOrange.SetDepthPriorityGroup(SDPG_Foreground);
-			m_ParticleRightOrange.SetFOV(UTSkeletalMeshComponent(Mesh).FOV);
+			//m_ParticleRightOrange.SetFOV(UTSkeletalMeshComponent(Mesh).FOV);
 
 			// Activate it.
 			m_ParticleLeftBlue.ActivateSystem();
