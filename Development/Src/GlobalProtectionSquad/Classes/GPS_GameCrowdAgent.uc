@@ -17,6 +17,11 @@ event NotifySeePlayer(PlayerController PC)
 {
 	local bool bFoundBehavior;
 	local int i;
+
+	if( GPS_CheatManager( PC.CheatManager ).IsCheatOn(CF_Beastmaster) )
+	{
+		return;
+	}
 	
 	`log(self@GetFuncName());
 	bWantsSeePlayerNotification = false; 

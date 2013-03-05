@@ -104,6 +104,7 @@ function SpawnChainEffects( vector StartLocation, vector EndLocation )
 	ChainPSC = WorldInfo.MyEmitterPool.SpawnEmitter(WeaponOwner.ChainEmitter,StartLocation);
 	ChainPSC.SetVectorParameter('LinkBeamEnd', EndLocation);
 	ChainPSC.SetColorParameter('BeamColor',WeaponOwner.ChainColor);
+
 	ChainPSC.ActivateSystem();
 	WorldInfo.PlaySound(WeaponOwner.WeaponFireSnd[0],,,,StartLocation);
 

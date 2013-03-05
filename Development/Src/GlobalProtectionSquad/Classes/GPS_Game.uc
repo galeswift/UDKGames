@@ -11,10 +11,10 @@ function AddDefaultInventory( pawn PlayerPawn )
 DefaultProperties
 {	
 	bDelayedStart=false
-
+	HUDType=class'GPS_HUD'
 	PlayerControllerClass=class'GPS_PlayerController'
 	ConsolePlayerControllerClass=class'GPS_PlayerController'
 	DefaultPawnClass=class'GlobalProtectionSquad.GPS_Pawn'
-
+	bUseClassicHUD=true
 	DefaultInventory.Empty()
 }

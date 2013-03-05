@@ -1,6 +1,29 @@
 class GPS_Weap_Beam extends GPS_Weap_Base
 	abstract;
 
+
+simulated function UpdateBeam(float DeltaTime)
+{
+	local Vector		StartTrace, EndTrace, AimDir;
+	local array<ImpactInfo> ImpactList;
+	local int i;
+
+	// define range to use for CalcWeaponFire()
+	StartTrace	= Instigator.GetWeaponStartTraceLocation();
+	AimDir = Vector(GetAdjustedAim( StartTrace ));
+	EndTrace	= StartTrace + AimDir * GetTraceRange();
+
+	// Trace a shot
+	CalcWeaponFire( StartTrace, EndTrace, ImpactList );
+
+	for( i=0 ; i<ImpactList.Length ; i++ )
+	{
+		// Allow children to process the hit
+		ProcessBeamHit(StartTrace, AimDir, ImpactList[i], DeltaTime);
+		UpdateBeamEmitter(ImpactList[i].HitLocation, ImpactList[i].HitNormal, ImpactList[i].HitActor);
+	}
+}
+
 DefaultProperties
 {
 	WeaponFireTypes(0)=EWFT_InstantHit
