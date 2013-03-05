@@ -44,15 +44,12 @@ DefaultProperties
 	UnlockList.Add((Weapon=Class'GlobalProtectionSquad.GPS_Weap_Chain_03'))
 	UnlockList.Add((Weapon=Class'GlobalProtectionSquad.GPS_Weap_Chain_04'))
 	UnlockList.Add((Weapon=Class'GlobalProtectionSquad.GPS_Weap_Chain_05'))
-<<<<<<< HEAD
 	UnlockList.Add((Weapon=Class'GlobalProtectionSquad.GPS_Weap_Chain_06'))
 	UnlockList.Add((Weapon=Class'GlobalProtectionSquad.GPS_Weap_Chain_07'))
 	UnlockList.Add((Weapon=Class'GlobalProtectionSquad.GPS_Weap_Chain_08'))
 	UnlockList.Add((Weapon=Class'GlobalProtectionSquad.GPS_Weap_Chain_09'))
 	UnlockList.Add((Weapon=Class'GlobalProtectionSquad.GPS_Weap_Chain_10'))
 	UnlockList.Add((Weapon=Class'GlobalProtectionSquad.GPS_Weap_Chain_11'))
-=======
->>>>>>> 047a75f... Added DOT weapon, Added Center socket to ant
 	UnlockList.Add((Weapon=Class'GlobalProtectionSquad.GPS_Weap_DOT_01'))
 	UnlockList.Add((Weapon=Class'GlobalProtectionSquad.GPS_Weap_GrenadeLauncher_01'))
 	UnlockList.Add((Weapon=Class'GlobalProtectionSquad.GPS_Weap_GrenadeLauncher_02'))
