@@ -26,23 +26,6 @@ function AddDefaultInventory()
 	}
 }
 
-exec function GiveAllWeapons()
-{	
-	local int i;
-
-	Pawn.InvManager.DiscardInventory();
-
-	for( i=0 ; i<WeaponList.WeaponUnlockListDefault.UnlockList.Length ; i++ )
-	{
-		// Ensure we don't give duplicate items
-		if (Pawn.FindInventoryType( WeaponList.WeaponUnlockListDefault.UnlockList[i].Weapon ) == None)
-		{
-			// Only activate the first weapon
-			Pawn.CreateInventory( WeaponList.WeaponUnlockListDefault.UnlockList[i].Weapon, (i > 0));
-		}
-	}
-}
-
 /**
  * Reset Camera Mode to default
  */
@@ -52,5 +35,6 @@ event ResetCameraMode()
 }
 DefaultProperties
 {
+	CheatClass=class'GPS_CheatManager'
 	CameraClass=class'GPS_PlayerCamera'
 }
