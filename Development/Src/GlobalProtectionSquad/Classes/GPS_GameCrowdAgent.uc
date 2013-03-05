@@ -165,6 +165,11 @@ function TryDropLoot()
 	}
 }
 
+function bool IsDead()
+{
+	return Health <= 0;
+}
+
 DefaultProperties
 {
 	LootTable.Add((Probability=0.2,Loot=class'UTBerserk'))
