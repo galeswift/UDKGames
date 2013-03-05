@@ -44,6 +44,7 @@ DefaultProperties
 	UnlockList.Add((Weapon=Class'GlobalProtectionSquad.GPS_Weap_Chain_03'))
 	UnlockList.Add((Weapon=Class'GlobalProtectionSquad.GPS_Weap_Chain_04'))
 	UnlockList.Add((Weapon=Class'GlobalProtectionSquad.GPS_Weap_Chain_05'))
+	UnlockList.Add((Weapon=Class'GlobalProtectionSquad.GPS_Weap_DOT_01'))
 	UnlockList.Add((Weapon=Class'GlobalProtectionSquad.GPS_Weap_GrenadeLauncher_01'))
 	UnlockList.Add((Weapon=Class'GlobalProtectionSquad.GPS_Weap_GrenadeLauncher_02'))
 	UnlockList.Add((Weapon=Class'GlobalProtectionSquad.GPS_Weap_GrenadeLauncher_03'))
