@@ -55,4 +55,5 @@ protected simulated function DoBreakFracturedMeshes(vector ExploOrigin, float In
 DefaultProperties
 {
 	bRotationFollowsVelocity=true
+	MyDamageType=class'GPS_DmgType_Base'
 }

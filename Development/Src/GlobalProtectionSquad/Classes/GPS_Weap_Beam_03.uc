@@ -78,6 +78,6 @@ DefaultProperties
 	AttachmentClass=class'GPS_Attachment_BeamGun_03'
 	BaseClipCapacity=1
 	FireInterval(0)=2
-	BaseDamage=2000
+	BaseDamage=400
 	InstantHitDamageTypes(0)=class'GPS_DmgType_FinalBeam'
 }

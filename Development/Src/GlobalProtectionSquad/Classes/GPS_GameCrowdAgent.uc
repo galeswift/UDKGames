@@ -1,9 +1,12 @@
 class GPS_GameCrowdAgent extends UTGameCrowdAgent;
 
-
 /** Behaviors to choose from when see someone chasing the player */
 var(Behavior) array<BehaviorEntry>  ChaseBehaviors;
+
+/** Played on death */
 var() ParticleSystem DeathParticleSystem;
+
+/** Played on death */
 var() SoundCue DeathSoundCue;
 
 struct LootInfo
@@ -14,6 +17,19 @@ struct LootInfo
 
 // When this guy dies, spawn either armor, health, or a weapon.
 var array<LootInfo> LootTable;
+
+function TakeDamage(int DamageAmount, Controller EventInstigator, vector HitLocation, vector Momentum, class<DamageType> DamageType, optional TraceHitInfo HitInfo, optional Actor DamageCauser)
+{
+	Super.TakeDamage(DamageAmount, EventInstigator, HitLocation, Momentum, DamageType, HitInfo, DamageCauser );
+
+	if( Role == ROLE_Authority )
+	{
+		if( PlayerController(EventInstigator) != none )
+		{
+			GPS_Hud(PlayerController(EventInstigator).myHUD).AddDamageFor(self, DamageAmount);
+		}
+	}
+}
 
 event NotifySeePlayer(PlayerController PC)
 {
