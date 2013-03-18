@@ -3,6 +3,8 @@ class GPS_GameCrowdAgent extends UTGameCrowdAgent;
 
 /** Behaviors to choose from when see someone chasing the player */
 var(Behavior) array<BehaviorEntry>  ChaseBehaviors;
+var() ParticleSystem DeathParticleSystem;
+var() SoundCue DeathSoundCue;
 
 struct LootInfo
 {
@@ -104,7 +106,8 @@ function SetChase(Actor ChaseActor, bool bNewChase )
 function PlayDeath(vector KillMomentum)
 {
 	TryDropLoot();
-
+	WorldInfo.MyEmitterPool.SpawnEmitter(DeathParticleSystem, SkeletalMeshComponent.Bounds.Origin,,self);
+	PlaySound(DeathSoundCue,,,,SkeletalMeshComponent.Bounds.Origin);
 	super.PlayDeath( KillMomentum );
 }
 
@@ -179,4 +182,6 @@ DefaultProperties
 {
 	LootTable.Add((Probability=0.2,Loot=class'UTBerserk'))
 	LootTable.Add((Probability=0.2,Loot=class'UTUDamage'))
+	DeathParticleSystem=ParticleSystem'GPS_FX.Effects.P_FX_DeathExplode'
+	DeathSoundCue=SoundCue'KismetGame_Assets.Sounds.Snake_Death_Cue'
 }

@@ -93,7 +93,7 @@ simulated function PhysicsVolumeChange( PhysicsVolume NewVolume )
 
 defaultproperties
 {
-	ProjFlightTemplate=ParticleSystem'WP_RocketLauncher.Effects.P_WP_RocketLauncher_Smoke_Trail'
+	ProjFlightTemplate=ParticleSystem'WP_RocketLauncher.Effects.P_WP_RocketLauncher_RocketTrail'
 
 	ProjExplosionTemplate=ParticleSystem'WP_RocketLauncher.Effects.P_WP_RocketLauncher_RocketExplosion'
 	ExplosionLightClass=class'UTGame.UTRocketExplosionLight'

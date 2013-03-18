@@ -15,7 +15,7 @@ defaultproperties
 	DecalWidth=128.0
 	DecalHeight=128.0
 	MomentumTransfer=85000
-	MyDamageType=class'UTDmgType_Rocket'
+	MyDamageType=class'GPS_DmgType_Rocket'
 	LifeSpan=8.0
 	AmbientSound=SoundCue'A_Weapon_RocketLauncher.Cue.A_Weapon_RL_Travel_Cue'
 	ExplosionSound=SoundCue'A_Weapon_RocketLauncher.Cue.A_Weapon_RL_Impact_Cue'

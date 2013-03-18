@@ -39,6 +39,8 @@ DefaultProperties
 	UnlockList.Add((Weapon=Class'GlobalProtectionSquad.GPS_Weap_AssaultRifle_24'))
 	UnlockList.Add((Weapon=Class'GlobalProtectionSquad.GPS_Weap_AssaultRifle_25'))
 	UnlockList.Add((Weapon=Class'GlobalProtectionSquad.GPS_Weap_Beam_01'))
+	UnlockList.Add((Weapon=Class'GlobalProtectionSquad.GPS_Weap_Beam_02'))
+	UnlockList.Add((Weapon=Class'GlobalProtectionSquad.GPS_Weap_Beam_03'))
 	UnlockList.Add((Weapon=Class'GlobalProtectionSquad.GPS_Weap_Chain_01'))
 	UnlockList.Add((Weapon=Class'GlobalProtectionSquad.GPS_Weap_Chain_02'))
 	UnlockList.Add((Weapon=Class'GlobalProtectionSquad.GPS_Weap_Chain_03'))

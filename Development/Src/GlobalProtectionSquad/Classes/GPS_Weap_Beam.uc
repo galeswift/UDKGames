@@ -1,6 +1,31 @@
 class GPS_Weap_Beam extends GPS_Weap_Base
 	abstract;
 
+/** This impact is played when we hit the actor */
+var ParticleSystem ImpactEffect;
+
+/** Color of the beam emitter */
+var Color BeamColor;
+
+/**
+ * Process the hit info
+ */
+simulated function ProcessBeamHit(vector StartTrace, vector AimDir, out ImpactInfo TestImpact, float DeltaTime)
+{
+	Super.ProcessBeamHit(StartTrace, AimDir, TestImpact, DeltaTime);
+
+	if( TestImpact.HitActor != none )
+	{
+		WorldInfo.MyEmitterPool.SpawnEmitter(ImpactEffect, TestImpact.HitLocation,,TestImpact.HitActor);
+	}
+}
+
+simulated function UpdateBeamEmitter(vector FlashLocation, vector HitNormal, actor HitActor)
+{
+	Super.UpdateBeamEmitter(FlashLocation, HitNormal, HitActor);
+
+	BeamEmitter[CurrentFireMode].SetColorParameter('BeamColor', BeamColor);
+}
 
 simulated function UpdateBeam(float DeltaTime)
 {
@@ -24,6 +49,7 @@ simulated function UpdateBeam(float DeltaTime)
 	}
 }
 
+
 DefaultProperties
 {
 	WeaponFireTypes(0)=EWFT_InstantHit
@@ -41,5 +67,8 @@ DefaultProperties
 	MuzzleFlashAltPSCTemplate=ParticleSystem'GPS_FX.Effects.P_WP_BeamGun'
 	AttachmentClass=class'GPS_Attachment_BeamGun'
 
+	ImpactEffect=ParticleSystem'GPS_FX.Effects.PS_Beam_Impact'
 	WeaponRange=2000
+
+	BeamColor=(R=255, G=100, B=100)
 }
