@@ -24,9 +24,9 @@ function TakeDamage(int DamageAmount, Controller EventInstigator, vector HitLoca
 
 	if( Role == ROLE_Authority )
 	{
-		if( PlayerController(EventInstigator) != none )
+		if( GPS_PlayerController(EventInstigator) != none )
 		{
-			GPS_Hud(PlayerController(EventInstigator).myHUD).AddDamageFor(self, DamageAmount);
+			GPS_PlayerController(EventInstigator).AddDamageFor(self, DamageAmount);
 		}
 	}
 }

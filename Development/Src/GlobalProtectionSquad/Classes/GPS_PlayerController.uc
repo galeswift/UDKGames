@@ -26,6 +26,11 @@ function AddDefaultInventory()
 	}
 }
 
+reliable client function AddDamageFor(Actor A, int DamageAmount)
+{
+	GPS_Hud(myHud).AddDamageFor(A, DamageAmount);
+}
+
 /**
  * Reset Camera Mode to default
  */
