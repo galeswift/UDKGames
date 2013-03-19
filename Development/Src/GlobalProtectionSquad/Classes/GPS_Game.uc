@@ -1,4 +1,4 @@
-class GPS_Game extends UTDeathMatch;
+class GPS_Game extends UTGame;
 
 function AddDefaultInventory( pawn PlayerPawn )
 {
@@ -15,6 +15,7 @@ DefaultProperties
 	PlayerControllerClass=class'GPS_PlayerController'
 	ConsolePlayerControllerClass=class'GPS_PlayerController'
 	DefaultPawnClass=class'GlobalProtectionSquad.GPS_Pawn'
+	OnlineGameSettingsClass=class'GlobalProtectionSquad.GPS_GameSettings_Base'
 	bUseClassicHUD=true
 	DefaultInventory.Empty()
 }

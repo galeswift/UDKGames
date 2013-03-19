@@ -36,12 +36,12 @@ event NotifySeePlayer(PlayerController PC)
 	local bool bFoundBehavior;
 	local int i;
 
-	if( GPS_CheatManager( PC.CheatManager ).IsCheatOn(CF_Beastmaster) )
+	if( PC.CheatManager != none &&
+		GPS_CheatManager( PC.CheatManager ).IsCheatOn(CF_Beastmaster) )
 	{
 		return;
 	}
 	
-	`log(self@GetFuncName());
 	bWantsSeePlayerNotification = false; 
 	
 	// FIXMESTEVE - should check if current behavior can be overwritten and/or paused, and if so just pause it (keep it in current state)
@@ -118,9 +118,15 @@ function SetChase(Actor ChaseActor, bool bNewChase )
 	}
 }
 
-/** Stop agent moving and pay death anim */
-function PlayDeath(vector KillMomentum)
+event TornOff()
 {
+	PlayDeath(vect(0,0,100));
+}
+
+/** Stop agent moving and pay death anim */
+simulated function PlayDeath(vector KillMomentum)
+{
+	bTearOff=true;
 	TryDropLoot();
 	WorldInfo.MyEmitterPool.SpawnEmitter(DeathParticleSystem, SkeletalMeshComponent.Bounds.Origin,,self);
 	PlaySound(DeathSoundCue,,,,SkeletalMeshComponent.Bounds.Origin);
@@ -200,4 +206,7 @@ DefaultProperties
 	LootTable.Add((Probability=0.2,Loot=class'UTUDamage'))
 	DeathParticleSystem=ParticleSystem'GPS_FX.Effects.P_FX_DeathExplode'
 	DeathSoundCue=SoundCue'KismetGame_Assets.Sounds.Snake_Death_Cue'
+	
+	bUpdateSimulatedPosition=true
+	RemoteRole=ROLE_SimulatedProxy
 }

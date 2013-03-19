@@ -4,15 +4,15 @@
     <StartProgram>..\..\Binaries\Win32\UDK.exe</StartProgram>
     <CmdArgs />
     <LoadMapAtStartup>True</LoadMapAtStartup>
-    <StartupMap>GPS-LevelTest</StartupMap>
-    <LoadGameType>True</LoadGameType>
+    <StartupMap>127.0.0.1</StartupMap>
+    <LoadGameType>False</LoadGameType>
     <UserGameType>GlobalProtectionSquad.GPS_Game</UserGameType>
     <NoSound>False</NoSound>
     <NoStartupMovies>True</NoStartupMovies>
     <UseUnpublished>False</UseUnpublished>
     <ForceWindowedMode>True</ForceWindowedMode>
-    <WindowWidth>1280</WindowWidth>
-    <WindowHeight>720</WindowHeight>
+    <WindowWidth>640</WindowWidth>
+    <WindowHeight>480</WindowHeight>
     <ShowLogWindow>True</ShowLogWindow>
     <LogWindowX>0</LogWindowX>
     <LogWindowY>0</LogWindowY>
@@ -23,9 +23,9 @@
     <StartProgram>..\..\Binaries\Win32\UDK.exe</StartProgram>
     <CmdArgs />
     <LoadMapAtStartup>True</LoadMapAtStartup>
-    <StartupMap>Week5-Lab1.udk</StartupMap>
-    <LoadGameType>False</LoadGameType>
-    <UserGameType />
+    <StartupMap>GPS-LevelTest?listen</StartupMap>
+    <LoadGameType>True</LoadGameType>
+    <UserGameType>GlobalProtectionSquad.GPS_Game</UserGameType>
     <NoSound>False</NoSound>
     <NoStartupMovies>False</NoStartupMovies>
     <UseUnpublished>False</UseUnpublished>

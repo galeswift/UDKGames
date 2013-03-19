@@ -42,7 +42,8 @@ event PostRender()
 	currentX=0;
 	for(i=0 ;i<CF_MAX ; i++ )
 	{
-		if( GPS_CheatManager(PlayerOwner.CheatManager).IsCheatOn(CheatFlags(i)) )
+		if( PlayerOwner.CheatManager != none &&
+			GPS_CheatManager(PlayerOwner.CheatManager).IsCheatOn(CheatFlags(i)) )
 		{
 			currentStr="[Cheat:"$GetEnum(Enum'CheatFlags',i)$"]";		
 			DrawMobileDebugString(currentX,0,currentStr);
