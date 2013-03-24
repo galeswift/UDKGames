@@ -69,7 +69,11 @@ UDKGame/Content/Maps/Examples/
 UDKGame/Content/Maps/Mobile/
 UDKGame/Content/Maps/Showcases/
 UDKGame/Content/Maps/UT3/
-UDKGame/Flash/
+UDKGame/Flash/*
+!UDKGame/Flash/GlobalProtectionSquad/
+!UDKGame/Flash/ActionScript/
+UDKGame/Flash/ActionScript/*
+!UDKGame/Flash/ActionScript/GlobalProtectionSquad/
 UDKGame/Localization/
 UDKGame/Logs/
 UDKGame/Movies/

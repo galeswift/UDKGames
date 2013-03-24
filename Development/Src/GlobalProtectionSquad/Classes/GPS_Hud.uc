@@ -24,6 +24,20 @@ var float DamageInfoScaleValue;
 
 /** Current list of damage we're showing */
 var array<DamageHUDInfo> DamageInfoList;
+
+/** Main Heads Up Display Flash movie */
+var GPS_GFxMovie   GfxHudMovie;
+
+/** Class of HUD Movie object */
+var class<GPS_GFxMovie> GFxHUDClass;
+
+simulated function PostBeginPlay()
+{
+	super.PostBeginPlay();
+
+	CreateGFxHUDMovie();
+}
+
 /**
  * PostRender is the main draw loop.
  */
@@ -97,9 +111,30 @@ function AddDamageFor(Actor A, int DamageAmount)
 	DamageInfoList[newDmgInfoIndex].DamageHudScale = FMin(6, 1 + 5 * DamageScaling);
 }
 
+/**
+  * Create and initialize the GFxHUDMovie.
+  */
+function CreateGFxHUDMovie()
+{
+	GFxHudMovie = new GFxHUDClass;
+	GFxHudMovie.SetTimingMode(TM_Real);
+	GFxHudMovie.Init(class'Engine'.static.GetEngine().GamePlayers[GFxHudMovie.LocalPlayerOwnerIndex]);
+}
+
+function SetReloadTime(float pTime, float pMaxTime)
+{
+	GFxHudMovie.SetReloadTime(pTime, pMaxtime);
+}
+
+function HideReloadTimer()
+{
+	GFxHudMovie.HideReloadTimer();
+}
+
 DefaultProperties
 {
 	DamageHUDAcceleration=(X=0.0,Y=520)
 	DamageHudDefaultLifeTime=1.00
 	DamageInfoScaleValue=1000
+	GFxHUDClass=class'GPS_GFxMovie'
 }
