@@ -15,13 +15,13 @@ exec function GiveAllWeapons()
 
 	Pawn.InvManager.DiscardInventory();
 
-	for( i=0 ; i<GPS_PlayerController(Outer).WeaponList.WeaponUnlockListDefault.UnlockList.Length ; i++ )
+	for( i=0 ; i<GPS_PlayerController(Outer).DefaultWeaponList.UnlockList.Length ; i++ )
 	{
 		// Ensure we don't give duplicate items
-		if (Pawn.FindInventoryType( GPS_PlayerController(Outer).WeaponList.WeaponUnlockListDefault.UnlockList[i].Weapon ) == None)
+		if (Pawn.FindInventoryType( GPS_PlayerController(Outer).DefaultWeaponList.UnlockList[i].Weapon ) == None)
 		{
 			// Only activate the first weapon
-			Pawn.CreateInventory( GPS_PlayerController(Outer).WeaponList.WeaponUnlockListDefault.UnlockList[i].Weapon, (i > 0));
+			Pawn.CreateInventory( GPS_PlayerController(Outer).DefaultWeaponList.UnlockList[i].Weapon, (i > 0));
 		}
 	}
 }

@@ -7,6 +7,7 @@ struct WeaponUnlockInfo
 };
 
 var() array<WeaponUnlockInfo> UnlockList;
+var() array<int> ExpTable;
 var() int Version;
 
 DefaultProperties
