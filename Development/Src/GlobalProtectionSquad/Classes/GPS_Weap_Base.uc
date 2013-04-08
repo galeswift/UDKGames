@@ -38,11 +38,19 @@ var int CurrentBurstCount;
 /** If greater than 0, how much time is left before we're done reloading */
 var float CurrentReloadTime;
 
+var PlayerController PC;
+
 simulated function PostBeginPlay()
 {
 	Super.PostBeginPlay();
 
 	AmmoCount = BaseClipCapacity;
+
+	// Get our PlayerController
+	ForEach LocalPlayerControllers(class'PlayerController', PC)
+	{
+		break;
+	}
 }
 
 function RechargeAmmo()
@@ -96,10 +104,18 @@ state Reloading
 
 		`log(" Reloading, time left is "$CurrentReloadTime);
 
-		if( CurrentReloadTime <= 0 )
+		if ( PC != none && GPS_Hud(PC.MyHud) != none )
 		{
-			CurrentReloadTime = 0;
-			GotoState('Active');
+			if( CurrentReloadTime <= 0 )
+			{
+				CurrentReloadTime = 0;
+				GotoState('Active');
+				GPS_Hud(PC.MyHud).HideReloadTimer();
+			}
+			else
+			{
+				GPS_Hud(PC.MyHud).SetReloadTime(CurrentReloadTime, BaseReloadTime);
+			}
 		}
 	}
 
@@ -162,11 +178,11 @@ function ProcessBurstList()
 /** Called when zooming starts
  * @param PC - cast of Instigator.Controller for convenience
  */
-simulated function StartZoom(UTPlayerController PC)
+simulated function StartZoom(UTPlayerController UTPC)
 {
 	ZoomedTargetFOV = class'GPS_PlayerController'.default.DefaultFOV/BaseZoom;
 	
-	super.StartZoom( PC );
+	super.StartZoom( UTPC );
 }
 
 DefaultProperties

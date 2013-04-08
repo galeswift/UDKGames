@@ -10,9 +10,17 @@ var int MaxHits;
 // The emitter to show when DOTing
 var ParticleSystem DOTEmitter;
 var ParticleSystem DOTHitEmitter;
+var ParticleSystem SpreadEmitter;
 
 // The color of the emitter
 var Color DOTColor;
+
+var bool bSpreadIfDead;
+var bool bSpreadWhenDone;
+var bool bSpreadEachHit;
+var int NumSpreadTargets;
+var bool bAOE;
+var int iAOERadius;
 
 simulated function Projectile ProjectileFire()
 {
@@ -37,5 +45,6 @@ DefaultProperties
 	BaseDamage=40
 	DOTEmitter = ParticleSystem'GPS_FX.Effects.P_WP_DOT'
 	DOTHitEmitter = ParticleSystem'GPS_FX.Effects.P_WP_DOT_Tick'
-	DOTColor=(R=100, G=255, B=100)
+	SpreadEmitter = ParticleSystem'GPS_FX.Effects.P_WP_ChainGun'
+	DOTColor=(R=50, G=255, B=50)
 }
