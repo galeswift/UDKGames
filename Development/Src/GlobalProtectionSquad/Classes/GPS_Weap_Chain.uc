@@ -25,14 +25,14 @@ simulated function DoInstantHitBehavior(byte FiringMode, ImpactInfo Impact, opti
 }
 simulated function ProcessInstantHit(byte FiringMode, ImpactInfo Impact, optional int NumHits)
 {
-	local GPS_Chain_Handler ChainHandler;
+	local GPS_Handler_Chain ChainHandler;
 
 	// This deals damage initially
 	DoInstantHitBehavior( FiringMode, Impact, NumHits );
 
 	if( Impact.HitActor != none )
 	{
-		ChainHandler = Spawn(class'GPS_Chain_Handler', Instigator,,Impact.HitLocation);
+		ChainHandler = Spawn(class'GPS_Handler_Chain', Instigator,,Impact.HitLocation);
 		ChainHandler.Init( Impact, self );
 		ChainHandler.SpawnChainEffects(GetPhysicalFireStartLoc(), Impact.HitLocation);
 	}

@@ -87,6 +87,7 @@ DefaultProperties
 	UnlockList.Add((Weapon=Class'GlobalProtectionSquad.GPS_Weap_GrenadeLauncher_18'))
 	UnlockList.Add((Weapon=Class'GlobalProtectionSquad.GPS_Weap_GrenadeLauncher_19'))
 	UnlockList.Add((Weapon=Class'GlobalProtectionSquad.GPS_Weap_GrenadeLauncher_BurstDown'))
+	UnlockList.Add((Weapon=Class'GlobalProtectionSquad.GPS_Weap_GrenadeLauncher_GroundAOE_01'))
 	UnlockList.Add((Weapon=Class'GlobalProtectionSquad.GPS_Weap_HandGrenade_01'))
 	UnlockList.Add((Weapon=Class'GlobalProtectionSquad.GPS_Weap_HandGrenade_02'))
 	UnlockList.Add((Weapon=Class'GlobalProtectionSquad.GPS_Weap_HandGrenade_03'))
