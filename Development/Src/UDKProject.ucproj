@@ -48,6 +48,8 @@
     <Folder Include="AssaultGame\Classes\" />
     <Folder Include="Core\" />
     <Folder Include="Core\Classes\" />
+    <Folder Include="CustomWeapons\" />
+    <Folder Include="CustomWeapons\Classes\" />
     <Folder Include="Engine\" />
     <Folder Include="Engine\Classes\" />
     <Folder Include="ExoEditor\" />

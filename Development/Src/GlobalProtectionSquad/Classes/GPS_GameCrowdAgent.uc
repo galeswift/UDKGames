@@ -9,6 +9,9 @@ var() ParticleSystem DeathParticleSystem;
 /** Played on death */
 var() SoundCue DeathSoundCue;
 
+/** Exp given on death */
+var() int ExpReward;
+
 struct LootInfo
 {
 	var float Probability;
@@ -20,6 +23,13 @@ var array<LootInfo> LootTable;
 
 function TakeDamage(int DamageAmount, Controller EventInstigator, vector HitLocation, vector Momentum, class<DamageType> DamageType, optional TraceHitInfo HitInfo, optional Actor DamageCauser)
 {
+	local bool bDied;
+
+	if( Health > 0 && Health - DamageAmount <= 0 )
+	{
+		bDied = true;
+	}
+
 	Super.TakeDamage(DamageAmount, EventInstigator, HitLocation, Momentum, DamageType, HitInfo, DamageCauser );
 
 	if( Role == ROLE_Authority )
@@ -27,6 +37,10 @@ function TakeDamage(int DamageAmount, Controller EventInstigator, vector HitLoca
 		if( GPS_PlayerController(EventInstigator) != none )
 		{
 			GPS_PlayerController(EventInstigator).AddDamageFor(self, DamageAmount);
+			if( bDied )
+			{
+				GPS_PlayerController(EventInstigator).NotifyKilledEnemy(self,ExpReward);
+			}
 		}
 	}
 }
@@ -209,4 +223,5 @@ DefaultProperties
 	
 	bUpdateSimulatedPosition=true
 	RemoteRole=ROLE_SimulatedProxy
+	ExpReward=10
 }
