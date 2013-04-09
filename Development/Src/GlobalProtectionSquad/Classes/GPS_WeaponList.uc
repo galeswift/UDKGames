@@ -41,7 +41,6 @@ DefaultProperties
 	UnlockList.Add((Weapon=Class'GlobalProtectionSquad.GPS_Weap_AssaultRifle_25'))
 	UnlockList.Add((Weapon=Class'GlobalProtectionSquad.GPS_Weap_Beam_01'))
 	UnlockList.Add((Weapon=Class'GlobalProtectionSquad.GPS_Weap_Beam_02'))
-	UnlockList.Add((Weapon=Class'GlobalProtectionSquad.GPS_Weap_Beam_03'))
 	UnlockList.Add((Weapon=Class'GlobalProtectionSquad.GPS_Weap_Chain_01'))
 	UnlockList.Add((Weapon=Class'GlobalProtectionSquad.GPS_Weap_Chain_02'))
 	UnlockList.Add((Weapon=Class'GlobalProtectionSquad.GPS_Weap_Chain_03'))
@@ -178,5 +177,7 @@ DefaultProperties
 	UnlockList.Add((Weapon=Class'GlobalProtectionSquad.GPS_Weap_Sniper_18'))
 	UnlockList.Add((Weapon=Class'GlobalProtectionSquad.GPS_Weap_Sniper_19'))
 	UnlockList.Add((Weapon=Class'GlobalProtectionSquad.GPS_Weap_Sniper_20'))
+	UnlockList.Add((Weapon=Class'GlobalProtectionSquad.GPS_Weap_SuperBeam_01'))
+	UnlockList.Add((Weapon=Class'GlobalProtectionSquad.GPS_Weap_SuperBeam_02'))
 	UnlockList.Add((Weapon=Class'GlobalProtectionSquad.GPS_Weap_Turret_Hack'))
 }
