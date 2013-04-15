@@ -71,7 +71,7 @@ event PostRender()
 	Canvas.Font = Font'UI_Fonts.Fonts.UI_FOnts_AmbexHeavy10';
 
 	// Draw EXP on the screen
-	expStr = "Experience: ["$GPS_PlayerController(PlayerOwner).SaveData.CurrentExp$"] Level: ["$GPS_PlayerController(PlayerOwner).GetLevel()$"]";
+	expStr = "Experience=["$GPS_PlayerController(PlayerOwner).SaveData.CurrentExp$"] Level=["$GPS_PlayerController(PlayerOwner).GetLevel()$"]";
 	Canvas.StrLen(expStr, strXL, strYL);
 	Canvas.SetPos( 0, 30 );
 	Canvas.DrawText(expStr);

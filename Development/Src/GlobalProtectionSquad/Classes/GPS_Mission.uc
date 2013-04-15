@@ -15,6 +15,11 @@ struct MissionEnemyInfo
 /** Filled in from the editor, fills out the enemy list per wave*/
 var() array<MissionEnemyInfo> EnemyList;
 
+function int GetEnemiesLeft( int Wave )
+{
+	return EnemyList[Wave].EnemyCount - EnemyList[Wave].KilledEnemyCount;
+}
+
 DefaultProperties
 {
 }
