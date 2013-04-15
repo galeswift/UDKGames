@@ -8,6 +8,7 @@ var GPS_Weap_GrenadeLauncher_GroundAOE WeaponOwner;
 
 // Save the effects so we can turn them off
 var ParticleSystemComponent GroundAOEPSC;
+var ParticleSystemComponent GroundAOEHITPSC;
 
 // All actors we've hit
 //var array<Actor> PrevHitList;
@@ -17,9 +18,11 @@ function Init( vector HitLocation, GPS_Weap_GrenadeLauncher_GroundAOE GroundAOEO
 {
 	WeaponOwner = GroundAOEOwner;
 	HitsLeft = GroundAOEOwner.MaxHits;
+	SetLocation(HitLocation);
 
-	GroundAOEPSC = WorldInfo.MyEmitterPool.SpawnEmitter(WeaponOwner.GroundAOEEmitter, HitLocation);
-	//GroundAOEPSC.SetScale(0.2f);
+	GroundAOEPSC = WorldInfo.MyEmitterPool.SpawnEmitter(WeaponOwner.GroundAOEEmitter, HitLocation + vect(0,0,20));
+	
+	//GroundAOEPSC.SetScale(2.8f);
 
 	PrimeNextHit();
 }
@@ -50,23 +53,33 @@ function DoNextDamage()
 
 	if( HitsLeft > 0 )
 	{
-		HitsLeft--;
-
 		CurrentTargets = FindTargets();
 
 		for ( i = 0; i < CurrentTargets.Length; i++ )
 		{
 			// Do damage to this target
 			CurrentTargets[i].TakeDamage(WeaponOwner.BaseDamage, none, GPS_GameCrowdAgent(CurrentTargets[i]).SkeletalMeshComponent.Bounds.Origin, vect(0,0,0), class'UTDamageType');
+
+			// Spawn the particle effect
+			SpawnHitEffects(CurrentTargets[i], GPS_GameCrowdAgent(CurrentTargets[i]).SkeletalMeshComponent.Bounds.Origin);
 		}
 
-
 		PrimeNextHit();	
+
+		HitsLeft--;
 	}
 	else
 	{
 		EndGroundAOE();
 	}
+}
+
+function SpawnHitEffects( Actor Target, vector HitLocation )
+{	
+	GroundAOEHITPSC = WorldInfo.MyEmitterPool.SpawnEmitterMeshAttachment(WeaponOwner.GroundAOEHitEmitter,GPS_GameCrowdAgent(Target).SkeletalMeshComponent, 'Center', true);
+	GroundAOEHITPSC.SetScale(0.05f);
+	GroundAOEHITPSC.SetColorParameter('Color',WeaponOwner.HitColor);
+	WorldInfo.PlaySound(WeaponOwner.WeaponFireSnd[0],,,,HitLocation);
 }
 
 function array<Actor> FindTargets()

@@ -6,7 +6,7 @@ DefaultProperties
 	BaseDamage=20
 	FireInterval(0)=0.5
 	BaseReloadTime=2.0
-	BaseDamageRadius=7.0
+	BaseDamageRadius=600.0
 	MaxHits=10
 	DelayBetweenDamage=0.5
 }
