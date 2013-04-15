@@ -48,6 +48,8 @@
     <Folder Include="AssaultGame\Classes\" />
     <Folder Include="Core\" />
     <Folder Include="Core\Classes\" />
+    <Folder Include="CustomMutator\" />
+    <Folder Include="CustomMutator\Classes\" />
     <Folder Include="CustomWeapons\" />
     <Folder Include="CustomWeapons\Classes\" />
     <Folder Include="Engine\" />

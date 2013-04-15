@@ -6,6 +6,9 @@ var GPS_PlayerSaveData SaveData;
 /* The loadout used to populate the player weapon list */
 var GPS_WeaponList DefaultWeaponList;
 
+/* Keeps track of our pickups, kills, etc */
+var GPS_MissionManager MissionManager;
+
 /* Save game path */
 const SaveGamePath = "../../UDKGame/Saves/GPS_Save.bin";
 
@@ -20,7 +23,12 @@ simulated event PostBeginPlay()
 	{
 		SaveData.Init(DefaultWeaponList);
 		class'Engine'.static.BasicSaveObject(SaveData,SaveGamePath, false, Version,true);
-	}	
+	}
+
+	if( MissionManager == none )
+	{
+		MissionManager = Spawn(class'GPS_MissionManager', self);
+	}
 }
 
 function int GetLevel()
@@ -41,6 +49,7 @@ function int GetLevel()
 
 function NotifyKilledEnemy(Actor KilledActor, int ExpReward)
 {
+	MissionManager.NotifyKilledEnemy(KilledActor);
 	SaveData.GiveExp( ExpReward );
 	class'Engine'.static.BasicSaveObject(SaveData,SaveGamePath, false, DefaultWeaponList.Version,true);
 }

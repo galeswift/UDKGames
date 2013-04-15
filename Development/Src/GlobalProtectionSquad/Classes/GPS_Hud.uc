@@ -71,11 +71,19 @@ event PostRender()
 	Canvas.Font = Font'UI_Fonts.Fonts.UI_FOnts_AmbexHeavy10';
 
 	// Draw EXP on the screen
-	expStr = "Experience: ["$GPS_PlayerController(PlayerOwner).SaveData.CurrentExp$"] Level: ["$GPS_PlayerController(PlayerOwner).GetLevel()$"]";
+	expStr = "Experience=["$GPS_PlayerController(PlayerOwner).SaveData.CurrentExp$"] Level=["$GPS_PlayerController(PlayerOwner).GetLevel()$"]";
 	Canvas.StrLen(expStr, strXL, strYL);
 	Canvas.SetPos( 0, 30 );
 	Canvas.DrawText(expStr);
 
+
+	// Draw the mission info
+	if( GPS_PlayerController(PlayerOwner).MissionManager != none )
+	{
+		GPS_PlayerController(PlayerOwner).MissionManager.PostRender(Canvas);
+	}
+
+	// Draw the floating damage text
 	for( i=DamageInfoList.Length-1 ; i>=0; i-- )
 	{
 		if( GPS_GameCrowdAgent(DamageInfoList[i].DamagedActor) != none )

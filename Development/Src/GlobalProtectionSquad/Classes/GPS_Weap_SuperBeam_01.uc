@@ -6,3 +6,4 @@ DefaultProperties
 	BeamDuration=3.1
 	BeamScale=(X=100,Y=0,Z=0)
 }
+	

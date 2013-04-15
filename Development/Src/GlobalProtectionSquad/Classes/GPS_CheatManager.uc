@@ -26,6 +26,12 @@ exec function GiveAllWeapons()
 	}
 }
 
+// Just start the first mision for now
+exec function StartMission()
+{
+	GPS_PlayerController(Outer).MissionManager.StartMission(GPS_Mission'GPS_Missions.Mission_1');
+}
+
 exec function ToggleCheat(CheatFlags Flag)
 {
 	if(	CheatFlagStatus[Flag] == 0 )
