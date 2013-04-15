@@ -73,7 +73,8 @@ function CompleteMission( GPS_Mission Mission )
 			CurrentSpawner = SeqAct_UTCrowdSpawner(SpawnerActions[Idx]);
 			if (CurrentSpawner != None)
 			{
-				CurrentSpawner.Reset();
+				// Stop and kill is 4.  Just stop is 1
+				CurrentSpawner.ForceActivateInput(4);
 			}
 		}
 	}
