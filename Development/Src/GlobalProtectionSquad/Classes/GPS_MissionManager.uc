@@ -35,7 +35,7 @@ function StartMission(GPS_Mission Mission, optional int Wave = 0)
 	local int Idx;
 	
 	CurrentMission = Mission;
-	CurrentMission.KilledEnemyCount = 0;
+	CurrentMission.EnemyList[Wave].KilledEnemyCount = 0;
 	CurrentWave = 0;
 
 	GameSeq = WorldInfo.GetGameSequence();
