@@ -15,7 +15,7 @@ simulated function Projectile ProjectileFire()
 	{
 		CustomProjectile = Super.ProjectileFire();  
 		ProjectileRotation = Rotator(CustomProjectile.Velocity);
-		ProjectileRotation.Yaw = YawStart + YawIncrement*i;
+		ProjectileRotation.Yaw += YawStart + YawIncrement*i;
 
 		CustomProjectile.Velocity = VSize(CustomProjectile.Velocity) * vector(ProjectileRotation);
 	}
