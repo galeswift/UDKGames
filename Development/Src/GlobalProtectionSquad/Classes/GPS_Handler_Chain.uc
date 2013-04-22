@@ -70,7 +70,7 @@ function DoNextChain()
 			CurrentImpactInfo.HitActor = NextTarget;
 
 			// Do damage to this target
-			WeaponOwner.DoInstantHitBehavior(0, CurrentImpactInfo);
+			WeaponOwner.ProcessInstantHit(0, CurrentImpactInfo);
 
 			// Spawn the particle effect
 			SpawnChainEffects(GPS_GameCrowdAgent(NextTarget).SkeletalMeshComponent.Bounds.Origin, GPS_GameCrowdAgent(PrevImpact.HitActor).SkeletalMeshComponent.Bounds.Origin);
