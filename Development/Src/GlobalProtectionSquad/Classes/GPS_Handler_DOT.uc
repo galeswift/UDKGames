@@ -58,13 +58,15 @@ function DoNextDamage()
 	local GPS_GameCrowdAgent A;
 	local Vector AOEVect;
 	local int iTempNumSpreadTargets;
+	local ImpactInfo CurrentImpactInfo;
 
 	if( HitsLeft > 0 )
 	{
 		HitsLeft--;
 
 		// Do damage to this target
-		DOTTarget.TakeDamage(WeaponOwner.BaseDamage, none, GPS_GameCrowdAgent(DOTTarget).SkeletalMeshComponent.Bounds.Origin, vect(0,0,0), class'UTDamageType');
+		CurrentImpactInfo.HitActor = DOTTarget;
+		WeaponOwner.ProcessInstantHit(WeaponOwner.CurrentFireMode, CurrentImpactInfo);
 		if (WeaponOwner.bSpreadEachHit && !WeaponOwner.bAOE)
 		{
 			if (WeaponOwner.NumSpreadTargets > NumSpreadTargets)
@@ -111,8 +113,10 @@ function DoNextDamage()
 			{
 				if( FastTrace( A.Location, GPS_GameCrowdAgent(DOTTarget).SkeletalMeshComponent.Bounds.Origin, AOEVect ) &&
 					A.Health > 0 && A != GPS_GameCrowdAgent(DOTTarget))
-				{			
-					A.TakeDamage(WeaponOwner.BaseDamage, none, A.SkeletalMeshComponent.Bounds.Origin, vect(0,0,0), class'UTDamageType');
+				{
+					// Do damage to this target
+					CurrentImpactInfo.HitActor = A;
+					WeaponOwner.ProcessInstantHit(WeaponOwner.CurrentFireMode, CurrentImpactInfo);
 					SpawnSpreadEffects(GPS_GameCrowdAgent(DOTTarget).SkeletalMeshComponent.Bounds.Origin, A.SkeletalMeshComponent.Bounds.Origin);
 					if (WeaponOwner.bSpreadEachHit)
 					{				
