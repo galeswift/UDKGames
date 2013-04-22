@@ -19,16 +19,12 @@ var float ChainDecayTimer;
 // If true, chains come from the heavens
 var bool bChainFromSky;
 
-simulated function DoInstantHitBehavior(byte FiringMode, ImpactInfo Impact, optional int NumHits)
-{
-	Super.ProcessInstantHit(FiringMode, Impact, NumHits);
-}
 simulated function ProcessInstantHit(byte FiringMode, ImpactInfo Impact, optional int NumHits)
 {
 	local GPS_Handler_Chain ChainHandler;
 
 	// This deals damage initially
-	DoInstantHitBehavior( FiringMode, Impact, NumHits );
+	Super.ProcessInstantHit( FiringMode, Impact, NumHits );
 
 	if( Impact.HitActor != none )
 	{
