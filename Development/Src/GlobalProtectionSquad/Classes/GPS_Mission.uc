@@ -15,6 +15,9 @@ struct MissionEnemyInfo
 /** Filled in from the editor, fills out the enemy list per wave*/
 var() array<MissionEnemyInfo> EnemyList;
 
+/** How difficult is this mission?  Used to determine item drops */
+var() int MissionLevel;
+
 function int GetEnemiesLeft( int Wave )
 {
 	return EnemyList[Wave].EnemyCount - EnemyList[Wave].KilledEnemyCount;

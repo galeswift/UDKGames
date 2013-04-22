@@ -3,21 +3,71 @@ class PT_Enemy_Base extends UTProjectile;
 /** The pawn's light environment */
 var DynamicLightEnvironmentComponent LightEnvironment;
 
+var() StaticMeshComponent Mesh_Static;
+var() SkeletalMeshComponent Mesh_Skeletal;
+var() Rotator InitialRotationRate;
+var() float InitialSpeed;
+var() vector InitialAcceleration;
+
+var bool EnteredPlaySpace;
+var vector InitialSpawnLocation;
+
+event Init(vector Direction)
+{
+	Speed = InitialSpeed;
+	MaxSpeed = InitialSpeed;
+	Acceleration = InitialAcceleration;
+	Super.Init(Direction);
+	RotationRate=InitialRotationRate;
+	SetCollision(false, false);
+	InitialSpawnLocation=Location;
+}
+
+event Tick( float DeltaTime )
+{
+	local vector HitLocation, HitNormal;
+	local Actor HitActor;
+	Super.Tick( DeltaTime );
+
+	if( !EnteredPlaySpace )
+	{
+		// Trace from spawn to enemy
+		HitActor = Trace( HitLocation, HitNormal, Location, InitialSpawnLocation, true );
+		
+		if( HitActor != none && 
+			HitActor.IsA('BlockingVolume') &&
+			HitNormal dot normal(Velocity) < 0 )
+		{
+			HitActor = Trace( HitLocation, HitNormal, Location + normal(InitialSpawnLocation - Location) * CylinderComponent.CollisionRadius * 1.1, Location, true );
+			
+			// Inside playspace
+			if( HitActor == none )
+			{
+				EnteredPlaySpace = true;
+				SetCollision(true, true);
+			}
+		}
+	}
+}
+
 event TakeDamage(int DamageAmount, Controller EventInstigator, vector HitLocation, vector Momentum, class<DamageType> DamageType, optional TraceHitInfo HitInfo, optional Actor DamageCauser)
 {
 	//local PT_Exp_Emitter ExpEmitter;
 	local PT_Pickup_Exp ExpPickup;
 
-	ExpPickup = Spawn(class'PT_Pickup_Exp',self,,Location);
-	ExpPickup.SetCollisionType(COLLIDE_TouchAll);
+	if( EnteredPlaySpace )
+	{
+		ExpPickup = Spawn(class'PT_Pickup_Exp',self,,Location);
+		ExpPickup.SetCollisionType(COLLIDE_TouchAll);
 
 
-	//ExpEmitter = Spawn(class'PT_Exp_Emitter',EventInstigator.Pawn,,Location);
-	//ExpEmitter.ParticleSystemComponent.SetTemplate(ParticleSystem'PT_FX.P_Exp_Trail');
-	//ExpEmitter.SetTarget(EventInstigator.Pawn);
+		//ExpEmitter = Spawn(class'PT_Exp_Emitter',EventInstigator.Pawn,,Location);
+		//ExpEmitter.ParticleSystemComponent.SetTemplate(ParticleSystem'PT_FX.P_Exp_Trail');
+		//ExpEmitter.SetTarget(EventInstigator.Pawn);
 
-	Explode(HitLocation, vect(0,0,0));
-	NotifyKilled(DamageType);	
+		Explode(HitLocation, vect(0,0,0));
+		NotifyKilled(DamageType);	
+	}
 }
 
 function NotifyKilled(class<DamageType> DamageType)
@@ -42,17 +92,6 @@ DefaultProperties
 	Components.Add(MyLightEnvironment)
 	LightEnvironment=MyLightEnvironment
 
-	Begin Object Class=StaticMeshComponent Name=ProjectileMesh
-		StaticMesh=StaticMesh'EditorMeshes.TexPropCube'
-		CastShadow=true
-		bForceDirectLightMap=true
-		bCastDynamicShadow=true
-		CollideActors=true
-		BlockRigidBody=false
-		LightEnvironment=MyLightEnvironment
-	End object
-	Components.Add(ProjectileMesh)
-
 	Begin Object Name=CollisionCylinder
 		CollisionRadius=32
 		CollisionHeight=32
@@ -76,7 +115,6 @@ DefaultProperties
 	LifeSpan=0.0
 	AmbientSound=SoundCue'A_Weapon_RocketLauncher.Cue.A_Weapon_RL_Travel_Cue'
 	ExplosionSound=SoundCue'A_Weapon_RocketLauncher.Cue.A_Weapon_RL_Impact_Cue'
-	RotationRate=(Pitch=10000, Roll=10000)
 	bCollideWorld=false
 	CheckRadius=42.0
 	bCheckProjectileLight=true
@@ -86,4 +124,29 @@ DefaultProperties
 	bAttachExplosionToVehicles=false
 	DrawScale=0.2
 	bProjTarget=True
+
+	Begin Object Class=StaticMeshComponent Name=ProjectileMesh
+		//StaticMesh=StaticMesh'EditorMeshes.TexPropCube'
+		CastShadow=true
+		bForceDirectLightMap=true
+		bCastDynamicShadow=true
+		CollideActors=true
+		BlockRigidBody=false
+		LightEnvironment=MyLightEnvironment
+	End object
+	Components.Add(ProjectileMesh)
+	Mesh_Static=ProjectileMesh
+
+	Begin Object Class=SkeletalMeshComponent Name=ProjectileMeshSK
+		//SkeletalMesh=SkeletalMesh'VH_GiantSaucer.SkeletalMeshes.SK_BattleSaucer'
+		CastShadow=true
+		bForceDirectLightMap=true
+		bCastDynamicShadow=true
+		CollideActors=true
+		BlockRigidBody=false
+		LightEnvironment=MyLightEnvironment
+	End object
+	Components.Add(ProjectileMeshSK)
+	Mesh_Skeletal=ProjectileMeshSK
+	InitialSpeed=250
 }

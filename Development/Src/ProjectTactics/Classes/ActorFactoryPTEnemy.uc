@@ -16,5 +16,4 @@ simulated event PostCreateActor(Actor NewActor, optional const SeqAct_ActorFacto
 DefaultProperties
 {
 	MenuName="Add Projectile Tactics Enemy"
-	NewActorClass=class'PT_Enemy_Base'
 }

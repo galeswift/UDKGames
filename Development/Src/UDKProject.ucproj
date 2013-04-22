@@ -58,6 +58,8 @@
     <Folder Include="ExoEditor\Classes\" />
     <Folder Include="GA3331\" />
     <Folder Include="GA3331\Classes\" />
+    <Folder Include="GA4401\" />
+    <Folder Include="GA4401\Classes\" />
     <Folder Include="GalacticBattle\" />
     <Folder Include="GalacticBattle\Classes\" />
     <Folder Include="GameFramework\" />
