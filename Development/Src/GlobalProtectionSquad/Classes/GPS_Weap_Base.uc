@@ -51,6 +51,9 @@ simulated function PostBeginPlay()
 	{
 		break;
 	}
+
+	InstantHitDamage[0] = BaseDamage;
+	InstantHitDamage[1] = BaseDamage;
 }
 
 function RechargeAmmo()

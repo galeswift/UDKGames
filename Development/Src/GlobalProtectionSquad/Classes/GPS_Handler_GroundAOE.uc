@@ -50,6 +50,7 @@ function DoNextDamage()
 {
 	local array<Actor> CurrentTargets;
 	local int i;
+	local ImpactInfo CurrentImpactInfo;
 
 	if( HitsLeft > 0 )
 	{
@@ -58,7 +59,8 @@ function DoNextDamage()
 		for ( i = 0; i < CurrentTargets.Length; i++ )
 		{
 			// Do damage to this target
-			CurrentTargets[i].TakeDamage(WeaponOwner.BaseDamage, none, GPS_GameCrowdAgent(CurrentTargets[i]).SkeletalMeshComponent.Bounds.Origin, vect(0,0,0), class'UTDamageType');
+			CurrentImpactInfo.HitActor = CurrentTargets[i];
+			WeaponOwner.ProcessInstantHit(WeaponOwner.CurrentFireMode, CurrentImpactInfo);
 
 			// Spawn the particle effect
 			SpawnHitEffects(CurrentTargets[i], GPS_GameCrowdAgent(CurrentTargets[i]).SkeletalMeshComponent.Bounds.Origin);

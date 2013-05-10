@@ -12,6 +12,9 @@ var() SoundCue DeathSoundCue;
 /** Exp given on death */
 var() int ExpReward;
 
+/** modify movement speed percentage **/
+var float fMovementModifierPercentage;
+
 struct LootInfo
 {
 	var float Probability;
@@ -212,6 +215,33 @@ function TryDropLoot()
 function bool IsDead()
 {
 	return Health <= 0;
+}
+
+function bool HasModifiedMovement()
+{
+	return fMovementModifierPercentage != 0.0f;
+}
+
+function SetModifiedMovement(float fMovementPercentage)
+{
+	fMovementModifierPercentage = fMovementPercentage;
+}
+
+/** Set maximum movement speed */
+function SetMaxSpeed()
+{
+	if ( HasModifiedMovement() )
+	{
+		MaxSpeed = MaxRunningSpeed*fMovementModifierPercentage;
+	}
+	else if ( IsPanicked() )
+	{
+		MaxSpeed = MaxRunningSpeed;
+	}
+	else
+	{
+		MaxSpeed = MaxWalkingSpeed;
+	}
 }
 
 DefaultProperties
