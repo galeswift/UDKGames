@@ -10,6 +10,8 @@ enum EMouseEvent
 	ScrollWheelDown,
 };
 
+var bool bLeftMouseHeld, bRightMouseHeld;
+
 // Handle mouse inputs
 function HandleMouseInput(EMouseEvent MouseEvent, EInputEvent InputEvent)
 {
@@ -27,10 +29,12 @@ function HandleMouseInput(EMouseEvent MouseEvent, EInputEvent InputEvent)
 			switch (MouseEvent)
 			{
 			case LeftMouseButton:
+				bLeftMouseHeld = true;
 				MouseInterfaceHUD.PendingLeftPressed = true;
 				break;
 
 			case RightMouseButton:
+				bRightMouseHeld = true;
 				MouseInterfaceHUD.PendingRightPressed = true;
 				break;
 
@@ -56,10 +60,14 @@ function HandleMouseInput(EMouseEvent MouseEvent, EInputEvent InputEvent)
 			switch (MouseEvent)
 			{
 			case LeftMouseButton:
+				bLeftMouseHeld=false;
+				MouseInterfaceHUD.LeftRepeat = false;
 				MouseInterfaceHUD.PendingLeftReleased = true;
 				break;
 
 			case RightMouseButton:
+				bRightMouseHeld=false;
+				MouseInterfaceHUD.RightRepeat = false;
 				MouseInterfaceHUD.PendingRightReleased = true;
 				break;
 
@@ -71,6 +79,37 @@ function HandleMouseInput(EMouseEvent MouseEvent, EInputEvent InputEvent)
 				break;
 			}
 		}
+		else if( InputEvent == IE_Repeat )
+		{
+			// Handle released event
+			switch (MouseEvent)
+			{
+			case LeftMouseButton:
+				MouseInterfaceHUD.LeftRepeat = true;
+				break;
+
+			case RightMouseButton:
+				MouseInterfaceHUD.RightRepeat = true;
+				break;
+
+			default:
+				break;
+			}
+		}
+	}
+}
+
+event PlayerTick(float DeltaTime)
+{
+	Super.PlayerTick(DeltaTime);
+
+	if( bLeftMouseHeld )
+	{
+		HandleMouseInput(LeftMouseButton, IE_Repeat);
+	}
+	if( bRightMouseHeld )
+	{
+		HandleMouseInput(RightMouseButton, IE_Repeat);
 	}
 }
 

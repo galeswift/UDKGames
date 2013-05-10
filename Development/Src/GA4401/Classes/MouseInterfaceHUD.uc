@@ -1,4 +1,4 @@
-class MouseInterfaceHUD extends HUD;
+class MouseInterfaceHUD extends MobileHUD;
 
 // The texture which represents the cursor on the screen
 var const Texture2D CursorTexture;
@@ -20,6 +20,9 @@ var bool PendingMiddleReleased;
 var bool PendingScrollUp;
 // Pending mouse wheel scroll down event
 var bool PendingScrollDown;
+// Repeats
+var bool LeftRepeat;
+var bool RightRepeat;
 // Cached mouse world origin
 var Vector CachedMouseWorldOrigin;
 // Cached mouse world direction
@@ -50,6 +53,8 @@ simulated event PostBeginPlay()
 			MouseInterfaceGFx.Init(class'Engine'.static.GetEngine().GamePlayers[MouseInterfaceGFx.LocalPlayerOwnerIndex]);
 		}
 	}
+
+	SetTimer(0.1, true, 'RefreshKismetLinks');
 }
 
 simulated event Destroyed()
@@ -120,7 +125,7 @@ event PostRender()
 		{
 			// Call the mouse out function
 			//LastMouseInteractionActor.MouseOut(CachedMouseWorldOrigin, CachedMouseWorldDirection);
-			TriggerMouseEvent(LastMouseInteractionActor, 9, CachedMouseWorldOrigin, CachedMouseWorldDirection, HitLocation, HitNormal);
+			TriggerMouseEvent(LastMouseInteractionActor, 11, CachedMouseWorldOrigin, CachedMouseWorldDirection, HitLocation, HitNormal);
 
 			// Assign the new mouse interaction interface
 			LastMouseInteractionActor = MouseInteractionActor; 
@@ -130,7 +135,7 @@ event PostRender()
 			{
 				// Call the mouse over function
 				//LastMouseInteractionActor.MouseOver(CachedMouseWorldOrigin, CachedMouseWorldDirection); // Call mouse over
-				TriggerMouseEvent(LastMouseInteractionActor, 8, CachedMouseWorldOrigin, CachedMouseWorldDirection, HitLocation, HitNormal);
+				TriggerMouseEvent(LastMouseInteractionActor, 10, CachedMouseWorldOrigin, CachedMouseWorldDirection, HitLocation, HitNormal);
 			}
 		}
 	}
@@ -140,7 +145,7 @@ event PostRender()
 		LastMouseInteractionActor = MouseInteractionActor; 
 		// Call the mouse over function
 		//LastMouseInteractionActor.MouseOver(CachedMouseWorldOrigin, CachedMouseWorldDirection); 
-		TriggerMouseEvent(LastMouseInteractionActor, 8, CachedMouseWorldOrigin, CachedMouseWorldDirection, HitLocation, HitNormal);
+		TriggerMouseEvent(LastMouseInteractionActor, 10, CachedMouseWorldOrigin, CachedMouseWorldDirection, HitLocation, HitNormal);
 	}
 
 
@@ -166,7 +171,7 @@ event PostRender()
 		// Left is released
 		PendingLeftReleased = false;
 		//LastMouseInteractionActor.MouseLeftReleased(CachedMouseWorldOrigin, CachedMouseWorldDirection);
-		TriggerMouseEvent(MouseInteractionActor,1, CachedMouseWorldOrigin, CachedMouseWorldDirection, HitLocation, HitNormal);
+		TriggerMouseEvent(MouseInteractionActor,2, CachedMouseWorldOrigin, CachedMouseWorldDirection, HitLocation, HitNormal);
 	}
 
 	// Handle right mouse button
@@ -183,7 +188,7 @@ event PostRender()
 			// Right is pressed
 			PendingRightPressed = false;
 			//LastMouseInteractionActor.MouseRightPressed(CachedMouseWorldOrigin, CachedMouseWorldDirection, HitLocation, HitNormal);
-			TriggerMouseEvent(MouseInteractionActor,2, CachedMouseWorldOrigin, CachedMouseWorldDirection, HitLocation, HitNormal);
+			TriggerMouseEvent(MouseInteractionActor,3, CachedMouseWorldOrigin, CachedMouseWorldDirection, HitLocation, HitNormal);
 		}
 	}
 	else if (PendingRightReleased)
@@ -191,7 +196,17 @@ event PostRender()
 		// Right is released
 		PendingRightReleased = false;
 		//LastMouseInteractionActor.MouseRightReleased(CachedMouseWorldOrigin, CachedMouseWorldDirection);
-		TriggerMouseEvent(MouseInteractionActor,3, CachedMouseWorldOrigin, CachedMouseWorldDirection, HitLocation, HitNormal);
+		TriggerMouseEvent(MouseInteractionActor,5, CachedMouseWorldOrigin, CachedMouseWorldDirection, HitLocation, HitNormal);
+	}
+
+	if(LeftRepeat)
+	{
+		TriggerMouseEvent(MouseInteractionActor,1, CachedMouseWorldOrigin, CachedMouseWorldDirection, HitLocation, HitNormal);
+	}
+
+	if(RightRepeat)
+	{
+		TriggerMouseEvent(MouseInteractionActor,4, CachedMouseWorldOrigin, CachedMouseWorldDirection, HitLocation, HitNormal);
 	}
 
 	// Handle middle mouse button
@@ -208,14 +223,14 @@ event PostRender()
 			// Middle is pressed
 			PendingMiddlePressed = false;
 			//LastMouseInteractionActor.MouseMiddlePressed(CachedMouseWorldOrigin, CachedMouseWorldDirection, HitLocation, HitNormal);
-			TriggerMouseEvent(MouseInteractionActor,4, CachedMouseWorldOrigin, CachedMouseWorldDirection, HitLocation, HitNormal);
+			TriggerMouseEvent(MouseInteractionActor,6, CachedMouseWorldOrigin, CachedMouseWorldDirection, HitLocation, HitNormal);
 		}
 	}
 	else if (PendingMiddleReleased)
 	{
 		PendingMiddleReleased = false;
 		//LastMouseInteractionActor.MouseMiddleReleased(CachedMouseWorldOrigin, CachedMouseWorldDirection);
-		TriggerMouseEvent(MouseInteractionActor,5, CachedMouseWorldOrigin, CachedMouseWorldDirection, HitLocation, HitNormal);
+		TriggerMouseEvent(MouseInteractionActor,7, CachedMouseWorldOrigin, CachedMouseWorldDirection, HitLocation, HitNormal);
 	}
 
 	// Handle middle mouse button scroll up
@@ -223,7 +238,7 @@ event PostRender()
 	{
 		PendingScrollUp = false;
 		//LastMouseInteractionActor.MouseScrollUp(CachedMouseWorldOrigin, CachedMouseWorldDirection);
-		TriggerMouseEvent(MouseInteractionActor,6, CachedMouseWorldOrigin, CachedMouseWorldDirection, HitLocation, HitNormal);
+		TriggerMouseEvent(MouseInteractionActor,8, CachedMouseWorldOrigin, CachedMouseWorldDirection, HitLocation, HitNormal);
 	}
 
 	// Handle middle mouse button scroll down
@@ -231,7 +246,7 @@ event PostRender()
 	{
 		PendingScrollDown = false;
 		//LastMouseInteractionActor.MouseScrollDown(CachedMouseWorldOrigin, CachedMouseWorldDirection);
-		TriggerMouseEvent(MouseInteractionActor,7, CachedMouseWorldOrigin, CachedMouseWorldDirection, HitLocation, HitNormal);
+		TriggerMouseEvent(MouseInteractionActor,9, CachedMouseWorldOrigin, CachedMouseWorldDirection, HitLocation, HitNormal);
 	}
 
 	// Used to cache the current mouse location

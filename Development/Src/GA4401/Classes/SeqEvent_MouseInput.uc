@@ -23,6 +23,20 @@ event Activated()
 	}
 }
 
+
+/**
+ * Return the version number for this class.  Child classes should increment this method by calling Super then adding
+ * a individual class version to the result.  When a class is first created, the number should be 0; each time one of the
+ * link arrays is modified (VariableLinks, OutputLinks, InputLinks, etc.), the number that is added to the result of
+ * Super.GetObjClassVersion() should be incremented by 1.
+ *
+ * @return	the version number for this specific class.
+ */
+static event int GetObjClassVersion()
+{
+	return Super.GetObjClassVersion() + 1;
+}
+
 defaultproperties
 {
 	ObjName="Mouse Input"
@@ -31,16 +45,20 @@ defaultproperties
 	bPlayerOnly=false
 	MaxTriggerCount=0
 
-	OutputLinks(0)=(LinkDesc="Left Pressed")
-	OutputLinks(1)=(LinkDesc="Left Released")
-	OutputLinks(2)=(LinkDesc="Right Pressed")
-	OutputLinks(3)=(LinkDesc="Right Released")
-	OutputLinks(4)=(LinkDesc="Middle Pressed")
-	OutputLinks(5)=(LinkDesc="Middle Released")
-	OutputLinks(6)=(LinkDesc="Scroll Up")
-	OutputLinks(7)=(LinkDesc="Scroll Down")
-	OutputLinks(8)=(LinkDesc="Mouse Over")
-	OutputLinks(9)=(LinkDesc="Mouse Out")
+	OutputLinks.Empty
+	OutputLinks.Add((LinkDesc="Left Pressed"))
+	OutputLinks.Add((LinkDesc="Left Held"))
+	OutputLinks.Add((LinkDesc="Left Released"))
+	OutputLinks.Add((LinkDesc="Right Pressed"))
+	OutputLinks.Add((LinkDesc="Right Held"))
+	OutputLinks.Add((LinkDesc="Right Released"))
+	OutputLinks.Add((LinkDesc="Middle Pressed"))
+	OutputLinks.Add((LinkDesc="Middle Released"))
+	OutputLinks.Add((LinkDesc="Scroll Up"))
+	OutputLinks.Add((LinkDesc="Scroll Down"))
+	OutputLinks.Add((LinkDesc="Mouse Over"))
+	OutputLinks.Add((LinkDesc="Mouse Out"))
+
 
 	VariableLinks(1)=(ExpectedType=class'SeqVar_Vector',LinkDesc="HitLocation",bWriteable=true,PropertyName=HitLocation)
 	VariableLinks(2)=(ExpectedType=class'SeqVar_Vector',LinkDesc="HitNormal",bWriteable=true,PropertyName=HitNormal)
